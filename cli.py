@@ -30,7 +30,7 @@ count = 0
 @click.option("--offline", is_flag=True, default=False, help="Whether to include the resources needed to plot offline when outputting to file. Defaults to false.")
 def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline):
 
-    if not f or not f.endswith(("fa", "fasta")):
+    if f is None:
         raise ValueError("Must provide FASTA file.")
 
     # handle selecting the palette
