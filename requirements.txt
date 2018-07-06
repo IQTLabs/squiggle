@@ -2,3 +2,4 @@ bokeh
 biopython
 tqdm
 click
+numpy
