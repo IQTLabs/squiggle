@@ -26,8 +26,10 @@ from squiggle import transform
 @click.option("--link-y/--no-link-y", default=False, help="Whether to link the y axes for separate plotting. Defaults to false.")
 @click.option("-o", "--output", type=click.Path(dir_okay=False, exists=False), help="The output file for the visualization. If not provided, will open visualization in browser. The filetype must be .html")
 @click.option("--offline", is_flag=True, default=False, help="Whether to include the resources needed to plot offline when outputting to file. Defaults to false.")
-def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline):
+@click.option('--method', type=click.Choice(['squiggle', 'gates']), default="squiggle", help="The visualization method.")
+def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method):
 
+    # check filetype
     if f is None:
         raise ValueError("Must provide FASTA file.")
 
@@ -36,6 +38,13 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
 
     # get all the sequences
     seqs = [record for _f in f for record in SeqIO.parse(_f, "fasta")]
+
+    axis_labels = {
+        "squiggle": {"x": "position (BP)",
+                     "y": None},
+        "gates": {"x": "C-G axis",
+                  "y": "A-T axis"},
+    }
 
     fig_count = len(seqs) if separate else 1
     fig = []
@@ -51,7 +60,8 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
         else:
             y_range = None
 
-        fig.append(figure(x_axis_label="position (BP)",
+        fig.append(figure(x_axis_label=axis_labels[method]["x"],
+                          y_axis_label=axis_labels[method]["y"],
                           title=title,
                           x_range=x_range,
                           y_range=y_range))
@@ -62,7 +72,7 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
 
     for i, seq in enumerate(seqs):
         # perform the actual transformation
-        transformed = transform(seq.seq)
+        transformed = transform(seq.seq, method=method)
 
         # figure (no pun intended) which figure to plot the data on
         if separate:
