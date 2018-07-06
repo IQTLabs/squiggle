@@ -1,2 +1,2 @@
-# overlook
+# Squiggle
 DNA sequence visualization
