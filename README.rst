@@ -1,2 +1,4 @@
-# Squiggle
+Squiggle
+--------
+
 DNA sequence visualization
