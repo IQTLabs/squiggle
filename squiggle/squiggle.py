@@ -22,10 +22,10 @@ def transform(sequence):
             y.extend([running_value, running_value - 1, running_value])
         elif character == "T":
             y.extend([running_value, running_value - 1, running_value - 2])
-            running_value -= 1
+            running_value -= 2
         elif character == "G":
             y.extend([running_value, running_value + 1, running_value + 2])
-            running_value += 1
+            running_value += 2
         else:
             y.extend([running_value] * 3)
     return x, y
