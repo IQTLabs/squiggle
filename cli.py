@@ -12,8 +12,6 @@ from bokeh.resources import INLINE
 
 from squiggle import transform
 
-count = 0
-
 @click.command()
 @click.option("-f", type=click.Path(dir_okay=False, exists=True), multiple=True, help="The FASTA file whose sequences are to be visualized. May be repeated to visualize multiple files.")
 @click.option("-w", "--width", default=1, type=int, help="The width of the line. Defaults to 1.")
@@ -35,7 +33,6 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
 
     # handle selecting the palette
     palette = small_palettes[palette]
-    global count
 
     # get all the sequences
     seqs = [record for _f in f for record in SeqIO.parse(_f, "fasta")]
@@ -80,8 +77,7 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
                   y=transformed[1],
                   line_width=width,
                   legend=seq.name if color and not separate else None,
-                  color=palette[count + 1 if count > 2 else 3][count] if color else "black")
-        count += 1
+                  color=palette[i + 1 if i > 2 else 3][i] if color else "black")
 
         # set up the legend
         _fig.legend.location = "top_left"
