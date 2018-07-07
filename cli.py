@@ -14,7 +14,7 @@ from squiggle import transform
 
 @click.command()
 @click.option("-f", type=click.Path(dir_okay=False, exists=True), multiple=True, help="The FASTA file whose sequences are to be visualized. May be repeated to visualize multiple files.")
-@click.option("-w", "--width", default=1, type=int, help="The width of the line. Defaults to 1.")
+@click.option("-w", "--width", default=1, type=float, help="The width of the line. Defaults to 1.")
 @click.option("-p", "--palette", type=str, default="Category10", help="Which color palette to use. Choose from bokeh.pydata.org/en/latest/docs/reference/palettes.html. Defaults to Category20.")
 @click.option("--color/--no-color", default=True, help="Whether to plot the visualizations in color.")
 @click.option('--hide/--no-hide', default=True, help="Whether to hide sequences when clicked in the legend. Defaults to false if plotting one sequence and true if plotting multiple.")
