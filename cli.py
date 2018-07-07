@@ -27,7 +27,8 @@ from squiggle import transform
 @click.option("-o", "--output", type=click.Path(dir_okay=False, exists=False), help="The output file for the visualization. If not provided, will open visualization in browser. The filetype must be .html")
 @click.option("--offline", is_flag=True, default=False, help="Whether to include the resources needed to plot offline when outputting to file. Defaults to false.")
 @click.option('--method', type=click.Choice(['squiggle', 'gates', "yau"]), default="squiggle", help="The visualization method.")
-def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method):
+@click.option("-d", "--dimensions", nargs=2, type=int, metavar='WIDTH HEIGHT', help="The width and height of the plot, respectively. If not provided, will default to automatic sizing.")
+def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions):
 
     # check filetype
     if f is None:
@@ -35,6 +36,10 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
 
     # handle selecting the palette
     palette = small_palettes[palette]
+
+    # handle setting the dimensions automatically if not specified
+    if not dimensions:
+        dimensions = (None, None)
 
     # get all the sequences
     seqs = [record for _f in f for record in SeqIO.parse(_f, "fasta")]
@@ -66,7 +71,9 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
                           y_axis_label=axis_labels[method]["y"],
                           title=title,
                           x_range=x_range,
-                          y_range=y_range))
+                          y_range=y_range,
+                          plot_width=dimensions[0],
+                          plot_height=dimensions[1]))
 
     # show a progress bar if processing multiple files
     if len(seqs) > 1 and bar:
