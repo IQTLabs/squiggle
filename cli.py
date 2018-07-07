@@ -12,7 +12,7 @@ from bokeh.resources import INLINE
 
 from squiggle import transform
 
-@click.command()
+@click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.option("-f", type=click.Path(dir_okay=False, exists=True), multiple=True, help="The FASTA file whose sequences are to be visualized. May be repeated to visualize multiple files.")
 @click.option("-w", "--width", default=1, type=float, help="The width of the line. Defaults to 1.")
 @click.option("-p", "--palette", type=str, default="Category10", help="Which color palette to use. Choose from bokeh.pydata.org/en/latest/docs/reference/palettes.html. Defaults to Category20.")
