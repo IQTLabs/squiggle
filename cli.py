@@ -26,7 +26,7 @@ from squiggle import transform
 @click.option("--link-y/--no-link-y", default=False, help="Whether to link the y axes for separate plotting. Defaults to false.")
 @click.option("-o", "--output", type=click.Path(dir_okay=False, exists=False), help="The output file for the visualization. If not provided, will open visualization in browser. The filetype must be .html")
 @click.option("--offline", is_flag=True, default=False, help="Whether to include the resources needed to plot offline when outputting to file. Defaults to false.")
-@click.option('--method', type=click.Choice(['squiggle', 'gates']), default="squiggle", help="The visualization method.")
+@click.option('--method', type=click.Choice(['squiggle', 'gates', "yau"]), default="squiggle", help="The visualization method.")
 def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method):
 
     # check filetype
@@ -44,6 +44,8 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
                      "y": None},
         "gates": {"x": "C-G axis",
                   "y": "A-T axis"},
+        "yau": {"x": None,
+                "y": None},
     }
 
     fig_count = len(seqs) if separate else 1

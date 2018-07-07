@@ -54,3 +54,22 @@ def transform(sequence, method="squiggle"):
             else:
                 raise ValueError("Invalid character in sequence: " + character + ". Gates's method does not support non-ATGC bases. Try using method=squiggle.")
         return x, y
+
+    elif method == "yau":
+        x, y = [0], [0]
+        for character in sequence:
+            if character == "A":
+                x.append(x[-1] + 0.5)
+                y.append(y[-1] - ((3**0.5) / 2))
+            elif character == "T":
+                x.append(x[-1] + 0.5)
+                y.append(y[-1] + ((3**0.5) / 2))
+            elif character == "G":
+                x.append(x[-1] + ((3**0.5) / 2))
+                y.append(y[-1] - 0.5)
+            elif character == "C":
+                x.append(x[-1] + ((3**0.5) / 2))
+                y.append(y[-1] + 0.5)
+            else:
+                raise ValueError("Invalid character in sequence: " + character + ". Yau's method does not support non-ATGC bases. Try using method=squiggle.")
+        return x, y
