@@ -8,7 +8,8 @@ Squiggle
 
 |Build Status| |Cov| |CodeFactor| |Docs|
 
-Turn this:
+Squiggle is a two-dimensional DNA sequence visualization library that can turn
+this:
 
 .. code-block:: text
 

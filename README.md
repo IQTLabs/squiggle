@@ -5,7 +5,8 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/badge)](https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/)
 [![Docs](http://readthedocs.org/projects/freqgen/badge/?version=latest)](http://squiggle.readthedocs.io/en/latest/?badge=latest)
 
-Turn this:
+Squiggle is a two-dimensional DNA sequence visualization library that can turn
+this:
 
     >lcl|NC_000011.10_cds_NP_000509.1_1 [gene=HBB]
     ATGGTGCATCTGACTCCTGAGGAGAAGTCTGCCGTTACTGCCCTGTGGGGCAAGGTGAACGTGGATGAAG
