@@ -53,7 +53,6 @@ def transform(sequence, method="squiggle"):
                 y.append(y[-1]) # no change in y coord
             else:
                 raise ValueError("Invalid character in sequence: " + character + ". Gates's method does not support non-ATGC bases. Try using method=squiggle.")
-        return x, y
 
     elif method == "yau":
         x, y = [0], [0]
@@ -72,4 +71,18 @@ def transform(sequence, method="squiggle"):
                 y.append(y[-1] + 0.5)
             else:
                 raise ValueError("Invalid character in sequence: " + character + ". Yau's method does not support non-ATGC bases. Try using method=squiggle.")
-        return x, y
+
+    elif method == "randic":
+        x, y = [], []
+        mapping = dict(A=3, T=2, G=1, C=0)
+        for i, character in enumerate(sequence):
+            x.append(i)
+            try:
+                y.append(mapping[character])
+            except KeyError:
+                raise ValueError("Invalid character in sequence: " + character + ". Randić's method does not support non-ATGC bases. Try using method=squiggle.")
+
+    else:
+        raise ValueError("Invalid method. Valid methods are 'squiggle', 'gates', 'yau', and 'randic'.")
+
+    return x, y
