@@ -18,6 +18,6 @@ Turn this:
 
 into this:
 
-<div style="text-align:center">
+<p align ="center">
     <img src="/images/human_HBB_squiggle.png" alt="Human Squiggle" width="400px"/>
-</div>
+</p>
