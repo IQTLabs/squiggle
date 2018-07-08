@@ -26,7 +26,7 @@ from squiggle import transform
 @click.option("--link-y/--no-link-y", default=False, help="Whether to link the y axes for separate plotting. Defaults to false.")
 @click.option("-o", "--output", type=click.Path(dir_okay=False, exists=False), help="The output file for the visualization. If not provided, will open visualization in browser. The filetype must be .html")
 @click.option("--offline", is_flag=True, default=False, help="Whether to include the resources needed to plot offline when outputting to file. Defaults to false.")
-@click.option('--method', type=click.Choice(['squiggle', 'gates', "yau", "randic"]), default="squiggle", help="The visualization method.")
+@click.option('--method', type=click.Choice(['squiggle', 'gates', "yau", "randic", "qi"]), default="squiggle", help="The visualization method.")
 def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method):
 
     # check filetype
@@ -39,6 +39,10 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
     # get all the sequences
     seqs = [record for _f in f for record in SeqIO.parse(_f, "fasta")]
 
+    if max([len(seq) for seq in seqs]) > 25 and method in ["qi", "randic"]:
+        click.confirm("This method is not well suited to a sequence of this length. "
+                      "Do you want to continue?", abort=True)
+
     axis_labels = {
         "squiggle": {"x": "position (BP)",
                      "y": None},
@@ -47,7 +51,9 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
         "yau": {"x": None,
                 "y": None},
         "randic": {"x": "position (BP)",
-                   "y": "nucleotide"}
+                   "y": "nucleotide"},
+        "qi": {"x": "position (BP)",
+               "y": "dinucleotide"}
     }
 
     fig_count = len(seqs) if separate else 1
