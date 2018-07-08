@@ -21,3 +21,21 @@ into this:
 <p align ="center">
     <img src="/images/human_HBB_squiggle.png" alt="Human Squiggle" width="1000px"/>
 </p>
+
+## Installation
+
+Installation is as simple as:
+
+    pip install squiggle
+
+Or alternatively, if you want to get the latest development version:
+
+    pip install git+https://github.com/Benjamin-Lee/squiggle.git
+
+## Documentation
+
+The documentation for Squiggle is available [here](https://squiggle.readthedocs.io).
+
+## Citation
+
+To be determined.
