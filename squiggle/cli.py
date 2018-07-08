@@ -13,7 +13,7 @@ from bokeh.resources import INLINE
 from .squiggle import transform
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
-@click.option("-f", type=click.Path(dir_okay=False, exists=True), multiple=True, help="The FASTA file whose sequences are to be visualized. May be repeated to visualize multiple files.")
+@click.argument("FASTA", type=click.Path(dir_okay=False, exists=True), nargs=-1)
 @click.option("-w", "--width", default=1, type=float, help="The width of the line. Defaults to 1.")
 @click.option("-p", "--palette", type=str, default="Category10", help="Which color palette to use. Choose from bokeh.pydata.org/en/latest/docs/reference/palettes.html. Defaults to Category20.")
 @click.option("--color/--no-color", default=True, help="Whether to plot the visualizations in color.")
@@ -27,11 +27,11 @@ from .squiggle import transform
 @click.option("-o", "--output", type=click.Path(dir_okay=False, exists=False), help="The output file for the visualization. If not provided, will open visualization in browser. The filetype must be .html")
 @click.option("--offline", is_flag=True, default=False, help="Whether to include the resources needed to plot offline when outputting to file. Defaults to false.")
 @click.option('--method', type=click.Choice(['squiggle', 'gates', "yau", "randic", "qi"]), default="squiggle", help="The visualization method.")
-@click.option("-d", "--dimensions", nargs=2, type=int, metavar='WIDTH HEIGHT', help="The width and height of the plot, respectively. If not provided, will default to 500x500.")
-def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions):
+@click.option("-d", "--dimensions", nargs=2, type=int, metavar='WIDTH HEIGHT', help="The width and height of the plot, respectively. If not provided, will default to 750x500.")
+def visualize(FASTA, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions):
 
     # check filetype
-    if f is None:
+    if FASTA is None:
         raise ValueError("Must provide FASTA file.")
 
     # handle selecting the palette
@@ -39,10 +39,10 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
 
     # handle setting the dimensions automatically if not specified
     if not dimensions:
-        dimensions = (500, 500)
+        dimensions = (750, 500)
 
     # get all the sequences
-    seqs = [record for _f in f for record in SeqIO.parse(_f, "fasta")]
+    seqs = [record for _f in FASTA for record in SeqIO.parse(_f, "fasta")]
 
     if max([len(seq) for seq in seqs]) > 25 and method in ["qi", "randic"]:
         click.confirm("This method is not well suited to a sequence of this length. "

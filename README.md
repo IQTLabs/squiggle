@@ -32,9 +32,15 @@ Or alternatively, if you want to get the latest development version:
 
     $ pip install git+https://github.com/Benjamin-Lee/squiggle.git
 
-## Documentation
+## Usage
 
-The documentation for Squiggle is available [here](https://squiggle.readthedocs.io).
+Using squiggle is as easy as:
+
+    $ squiggle your_sequence.fasta
+
+Squiggle has tons of options available to make beautiful, interactive
+visualizations of sequences. The documentation for Squiggle is available
+[here](https://squiggle.readthedocs.io).
 
 ## Citation
 
