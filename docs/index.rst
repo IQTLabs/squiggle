@@ -46,6 +46,10 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
+   license
+   api
+   cli
+
 
 Indices and tables
 ------------------
