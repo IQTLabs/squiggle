@@ -28,10 +28,10 @@ from .squiggle import transform
 @click.option("--offline", is_flag=True, default=False, help="Whether to include the resources needed to plot offline when outputting to file. Defaults to false.")
 @click.option('--method', type=click.Choice(['squiggle', 'gates', "yau", "randic", "qi"]), default="squiggle", help="The visualization method.")
 @click.option("-d", "--dimensions", nargs=2, type=int, metavar='WIDTH HEIGHT', help="The width and height of the plot, respectively. If not provided, will default to 750x500.")
-def visualize(FASTA, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions):
+def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions):
 
     # check filetype
-    if FASTA is None:
+    if fasta is None:
         raise ValueError("Must provide FASTA file.")
 
     # handle selecting the palette
@@ -42,7 +42,7 @@ def visualize(FASTA, width, palette, color, hide, bar, title, separate, cols, li
         dimensions = (750, 500)
 
     # get all the sequences
-    seqs = [record for _f in FASTA for record in SeqIO.parse(_f, "fasta")]
+    seqs = [record for _f in fasta for record in SeqIO.parse(_f, "fasta")]
 
     if max([len(seq) for seq in seqs]) > 25 and method in ["qi", "randic"]:
         click.confirm("This method is not well suited to a sequence of this length. "
@@ -108,7 +108,7 @@ def visualize(FASTA, width, palette, color, hide, bar, title, separate, cols, li
 
         # set up the legend
         _fig.legend.location = "top_left"
-        if len(f) > 1 and hide:
+        if len(seqs) > 1 and hide:
             _fig.legend.click_policy = "hide"
 
     try:
