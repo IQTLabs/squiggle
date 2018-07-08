@@ -104,7 +104,11 @@ def visualize(f, width, palette, color, hide, bar, title, separate, cols, link_x
         if len(f) > 1 and hide:
             _fig.legend.click_policy = "hide"
 
-    seqs.close()
+    try:
+        seqs.close()
+    except AttributeError:
+        pass
+
     print("Generating graph...")
 
     # lay out the figure
