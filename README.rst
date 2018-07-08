@@ -18,7 +18,7 @@ Turn this:
 
 into this:
 
-.. image:: ../images/human_HBB_squiggle.png
+.. image:: /images/human_HBB_squiggle.png
     :align: center
 
 
