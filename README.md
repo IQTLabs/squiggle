@@ -19,5 +19,5 @@ Turn this:
 into this:
 
 <p align ="center">
-    <img src="/images/human_HBB_squiggle.png" alt="Human Squiggle" width="400px"/>
+    <img src="/images/human_HBB_squiggle.png" alt="Human Squiggle" width="1000px"/>
 </p>
