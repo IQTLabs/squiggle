@@ -75,6 +75,27 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
         else:
             y_range = None
 
+        # the y axes for randic and qi are bases
+        if method == "randic":
+            y_range = ["A", "T", "G", "C"]
+        elif method == "qi":
+            y_range = ['AA',
+                       'AC',
+                       'AG',
+                       'AT',
+                       'CA',
+                       'CC',
+                       'CG',
+                       'CT',
+                       'GA',
+                       'GC',
+                       'GG',
+                       'GT',
+                       'TA',
+                       'TC',
+                       'TG',
+                       'TT']
+
         fig.append(figure(x_axis_label=axis_labels[method]["x"],
                           y_axis_label=axis_labels[method]["y"],
                           title=title,
@@ -99,9 +120,18 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
         else:
             _fig = fig[0]
 
+        # randic and qi method's have categorical y axes
+        if method == "randic":
+            y = list(seq)
+        elif method == "qi":
+            y = [seq.seq[i:i + 2] for i in range(len(seq))]
+            y = [str(i) for i in y if len(i) == 2]
+        else:
+            y = transformed[1]
+
         # do the actual plotting
         _fig.line(x=transformed[0],
-                  y=transformed[1],
+                  y=y,
                   line_width=width,
                   legend=seq.name if color and not separate else None,
                   color=palette[i + 1 if i > 2 else 3][i] if color else "black")
