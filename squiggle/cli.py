@@ -106,6 +106,8 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
                   legend=seq.name if color and not separate else None,
                   color=palette[i + 1 if i > 2 else 3][i] if color else "black")
 
+        _fig.toolbar.logo = None
+
         # set up the legend
         _fig.legend.location = "top_left"
         if len(seqs) > 1 and hide:
@@ -125,7 +127,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
         plot = fig[0]
 
     if output is not None and output.endswith(".html"):
-        output_file(output)
+        output_file(output, title="Squiggle Visualization" if title is not None else title)
         save(plot, resources=INLINE if offline else None)
     else:
         show(plot)

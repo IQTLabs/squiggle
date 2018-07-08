@@ -25,7 +25,7 @@ this:
 into this:
 
 .. raw:: html
-    :file: _static/human_hbb.html
+    :file: figures/human_hbb.html
 
 
 .. |Build Status| image:: https://travis-ci.org/Benjamin-Lee/squiggle.svg?branch=master
@@ -47,9 +47,10 @@ Table of Contents
 .. toctree::
    :maxdepth: 2
 
-   license
+   methods
    api
    cli
+   license
 
 
 Indices and tables
