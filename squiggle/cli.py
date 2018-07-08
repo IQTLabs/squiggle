@@ -10,7 +10,7 @@ from bokeh.layouts import gridplot
 from bokeh.models import annotations
 from bokeh.resources import INLINE
 
-from squiggle import transform
+from .squiggle import transform
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.option("-f", type=click.Path(dir_okay=False, exists=True), multiple=True, help="The FASTA file whose sequences are to be visualized. May be repeated to visualize multiple files.")
