@@ -107,7 +107,7 @@ setup(
     py_modules=['squiggle'],
 
     entry_points={
-        'console_scripts': ['squiggle=cli:visualize'],
+        'console_scripts': ['squiggle=squiggle.cli:visualize'],
     },
     install_requires=REQUIRED,
     extras_require=EXTRAS,
