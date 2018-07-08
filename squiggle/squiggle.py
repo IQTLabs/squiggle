@@ -33,15 +33,15 @@ def transform(sequence, method="squiggle"):
         x, y = np.linspace(0, len(sequence), 2 * len(sequence) + 1), [0]
         for character in sequence:
             if character == "A":
-                y.extend([running_value + 1, running_value])
+                y.extend([running_value + 0.5, running_value])
             elif character == "C":
-                y.extend([running_value - 1, running_value])
+                y.extend([running_value - 0.5, running_value])
             elif character == "T":
-                y.extend([running_value - 1, running_value - 2])
-                running_value -= 2
+                y.extend([running_value - 0.5, running_value - 1])
+                running_value -= 1
             elif character == "G":
-                y.extend([running_value + 1, running_value + 2])
-                running_value += 2
+                y.extend([running_value + 0.5, running_value + 1])
+                running_value += 1
             else:
                 y.extend([running_value] * 2)
         return list(x), y
