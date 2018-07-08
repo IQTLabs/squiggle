@@ -18,4 +18,4 @@ Turn this:
 
 into this:
 
-<img src="/images/human_HBB_squiggle.png" alt="Human Squiggle" width="400px"/>
+<img align="center" src="/images/human_HBB_squiggle.png" alt="Human Squiggle" width="400px" />
