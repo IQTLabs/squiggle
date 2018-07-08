@@ -26,11 +26,11 @@ into this:
 
 Installation is as simple as:
 
-    pip install squiggle
+    $ pip install squiggle
 
 Or alternatively, if you want to get the latest development version:
 
-    pip install git+https://github.com/Benjamin-Lee/squiggle.git
+    $ pip install git+https://github.com/Benjamin-Lee/squiggle.git
 
 ## Documentation
 
