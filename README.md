@@ -40,7 +40,7 @@ Using squiggle is as easy as:
     $ squiggle your_sequence.fasta
 
 Squiggle has tons of options available to make beautiful, interactive
-visualizations of sequences. The documentation for Squiggle is available
+visualizations of sequences. The full documentation is available
 [here](https://squiggle.readthedocs.io).
 
 ## Citation

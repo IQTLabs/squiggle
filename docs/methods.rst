@@ -28,3 +28,6 @@ Then, starting at the origin, for each bit, the following vectors are layed end 
     :file: figures/squiggle_vectors.html
 
 This mapping has the effect of giving each nucleotide a distinctive shape:
+
+.. raw:: html
+    :file: figures/squiggle_bases.html
