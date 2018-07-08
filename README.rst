@@ -20,7 +20,7 @@ into this:
 
 .. image:: /images/human_HBB_squiggle.png
     :align: center
-    :height: 400
+    :height: 200
 
 
 .. |Build Status| image:: https://travis-ci.org/Benjamin-Lee/squiggle.svg?branch=master
