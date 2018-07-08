@@ -31,3 +31,12 @@ This mapping has the effect of giving each nucleotide a distinctive shape:
 
 .. raw:: html
     :file: figures/squiggle_bases.html
+
+This encoding method has several handy features:
+
+- Based on an open, common bioinformatics format.
+- No degeneracy in the encoding (an encoding can only map to one sequence and vice versa).
+- The overall GC-content can be inferred from at a glance based on whether the endpoint of the graph is above or below zero.
+- `Regions inside the gene with varying GC-content <https://en.wikipedia.org/wiki/CpG_site>`_ can be seen as peaks and valleys.
+- Is limited to quadrants I and IV and is a function
+- The x-axis corresponds directly with nucleotide position
