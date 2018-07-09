@@ -20,7 +20,7 @@ this:
 into this:
 
 <p align ="center">
-    <img src="/images/human_HBB_squiggle.png" alt="Human Squiggle" width="1000px"/>
+    <img src="/images/human_HBB_squiggle.png" alt="Human Squiggle" width="750px"/>
 </p>
 
 ## Installation
