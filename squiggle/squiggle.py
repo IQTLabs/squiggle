@@ -27,7 +27,7 @@ def transform(sequence, method="squiggle"):
         ([0, 0, 0, 1, 0], [0, -1, 0, 0, 0])
         >>> transform("ATGC", method="yau")
         ([0, 0.5, 1.0, 1.8660254037844386, 2.732050807568877], [0, -0.8660254037844386, 0.0, -0.5, 0.0])
-        >>> transform("ATGC", method="yau")
+        >>> transform("ATGC", method="yau-bp")
         ([0, 1, 2, 3, 4], [0, -1, 0, -0.5, 0.0])
         >>> transform("ATGC", method="randic")
         ([0, 1, 2, 3], [3, 2, 1, 0])
