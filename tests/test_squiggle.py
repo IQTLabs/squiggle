@@ -16,6 +16,9 @@ def test_transform_G():
 def test_transform_C():
     assert transform("C") == transform("c") == ([0, 0.5, 1.0], [0, -0.5, 0])
 
+def test_invalid_seq():
+    assert transform("N") == ([0, 0.5, 1.0], [0, 0, 0])
+
 def test_transform_multiple():
     assert transform("ATG") == ([0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0],
                                 [0, 0.5, 0, -0.5, -1.0, -0.5, 0.0])

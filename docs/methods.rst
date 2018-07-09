@@ -42,6 +42,7 @@ This encoding method has several handy features:
 - `Regions inside the gene with varying GC-content <https://en.wikipedia.org/wiki/CpG_site>`_ can be seen as peaks and valleys.
 - Is limited to quadrants I and IV and is a function
 - The :math:`x`-axis corresponds directly with nucleotide position
+- Supports ambiguous nucleotides (which are displayed as horizontal lines)
 
 For an example, let's look at the human β-globin gene using the squiggle method::
 
