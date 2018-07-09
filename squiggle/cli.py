@@ -28,7 +28,8 @@ from .squiggle import transform
 @click.option("--offline", is_flag=True, default=False, help="Whether to include the resources needed to plot offline when outputting to file. Defaults to false.")
 @click.option('--method', type=click.Choice(['squiggle', 'gates', "yau", "randic", "qi"]), default="squiggle", help="The visualization method.")
 @click.option("-d", "--dimensions", nargs=2, type=int, metavar='WIDTH HEIGHT', help="The width and height of the plot, respectively. If not provided, will default to 750x500.")
-def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions):
+@click.option("--skip/--no-skip", default=False, help="Whether to skip any warnings. Defaults to false.")
+def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip):
 
     # check filetype
     if fasta is None:
@@ -44,7 +45,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
     # get all the sequences
     seqs = [record for _f in fasta for record in SeqIO.parse(_f, "fasta")]
 
-    if max([len(seq) for seq in seqs]) > 25 and method in ["qi", "randic"]:
+    if max([len(seq) for seq in seqs]) > 25 and method in ["qi", "randic"] and not skip:
         click.confirm("This method is not well suited to a sequence of this length. "
                       "Do you want to continue?", abort=True)
 

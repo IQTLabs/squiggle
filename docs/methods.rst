@@ -40,3 +40,85 @@ This encoding method has several handy features:
 - `Regions inside the gene with varying GC-content <https://en.wikipedia.org/wiki/CpG_site>`_ can be seen as peaks and valleys.
 - Is limited to quadrants I and IV and is a function
 - The x-axis corresponds directly with nucleotide position
+
+For an example, let's look at the human β-globin gene using the squiggle method::
+
+    $ squiggle example_seqs/human_HBB.fasta
+
+.. raw:: html
+    :file: figures/human_hbb.html
+
+Gates
+-----
+
+In `Gates's method <https://doi.org/10.1016/s0022-5193(86)80144-8>`_, DNA
+sequences are converted into 2D walks in which Ts, As, Cs, and Gs are up, down,
+left, and right, respectively. This gives each sequence a "shape." However,
+there is degeneracy, meaning that a visualization is not necessarily unique. For
+example, ``TGAC`` is a square (up, right, down, and left), but so is ``GTCA``
+(right, up, left, down).
+
+To see an example of Gate's method, we'll again look at human β-globin::
+
+    $ squiggle example_seqs/human_HBB.fasta --method=gates
+
+.. raw:: html
+    :file: figures/human_hbb_gates.html
+
+Yau
+---
+
+`Yau et. al's method <https://doi.org/10.1093/nar/gkg432>`_ uses unit vectors
+with upward vectors indicating pyrimidine bases (C and T) and downward vectors
+indicating purine bases (A and G). Similar to Squiggle, this method has no
+degeneracy.
+
+Specifically,
+
+:math:`A\rightarrow\left(\frac{1}{2},-\frac{\sqrt{3}}{2}\right)`,
+:math:`T\rightarrow\left(\frac{1}{2},\frac{\sqrt{3}}{2}\right)`,
+:math:`G\rightarrow\left(\frac{\sqrt{3}}{2}, -\frac{1}{2}\right)`,
+:math:`C\rightarrow\left(\frac{\sqrt{3}}{2}, \frac{1}{2}\right)`.
+
+.. Warning::
+
+   The x-coordinate in Yau's method is not equivalent to base position.
+
+.. raw:: html
+    :file: figures/yau_bases.html
+
+It produces a visualization of β-globin like this::
+
+    $ squiggle example_seqs/human_HBB.fasta --method=yau
+
+.. raw:: html
+    :file: figures/human_hbb_yau.html
+
+Randić and Qi
+-------------
+
+These methods are similar to `tablature
+<https://en.wikipedia.org/wiki/Tablature>`_, with a different base (or 2-mer in
+the case of Qi's method) assigned to each :math:`y` value. The best way
+visualize it is through an example.
+
+Let's look at the Randić visualization of ``GATC``:
+
+.. raw:: html
+    :file: figures/randic_example.html
+
+Look's pretty good. However, this visualization method isn't well suited to long
+sequences, as we'll see when we look at β-globin::
+
+    $ squiggle example_seqs/human_HBB.fasta --method=randic
+
+.. raw:: html
+    :file: figures/human_hbb_randic.html
+
+Qi's method produces very similar results, just with a much larger range of
+:math:`y` values::
+
+    $ squiggle example_seqs/human_HBB.fasta --method=qi
+
+.. raw:: html
+    :file: figures/human_hbb_qi.html
