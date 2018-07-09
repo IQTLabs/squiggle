@@ -15,15 +15,28 @@ def transform(sequence, method="squiggle"):
 
     Args:
         sequence (str): The DNA sequence to transform.
-        method (str): The method by which to transform the sequence. Defaults to "squiggle".
+        method (str): The method by which to transform the sequence. Defaults to "squiggle". Valid options are ``squiggle``, ``gates``, ``yau``, ``randic`` and ``qi``.
 
     Returns:
         tuple: A tuple containing two lists: one for the x coordinates and one for the y coodinates.
 
     Example:
-        >>> transform("ATG")
-        ([0, 0.5, 1, 1, 1.5, 2, 2, 2.5, 3], [0, 1, 0, -1, -2, -1, 0])
+        >>> transform("ATGC")
+        ([0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0], [0, 0.5, 0, -0.5, -1, -0.5, 0, -0.5, 0])
+        >>> transform("ATGC", method="gates")
+        ([0, 0, 0, 1, 0], [0, -1, 0, 0, 0])
+        >>> transform("ATGC", method="yau")
+        ([0, 0.5, 1.0, 1.8660254037844386, 2.732050807568877], [0, -0.8660254037844386, 0.0, -0.5, 0.0])
+        >>> transform("ATGC", method="randic")
+        ([0, 1, 2, 3], [3, 2, 1, 0])
+        >>> transform("ATGC", method="qi")
+        ([0, 1, 2], [8, 7, 11])
 
+    Note:
+        The entire sequence must be able to fit in memoryself.
+
+    Raises:
+        ValueError: When an invalid character is in the sequence.
     '''
 
     sequence = sequence.upper()
