@@ -97,10 +97,11 @@ It produces a visualization of β-globin like this::
 Randić and Qi
 -------------
 
-These methods are similar to `tablature
-<https://en.wikipedia.org/wiki/Tablature>`_, with a different base (or 2-mer in
-the case of Qi's method) assigned to each :math:`y` value. The best way
-visualize it is through an example.
+`Randić et al. <https://doi.org/10.1016/s0009-2614(02)01784-0>`_ and `Qi and Qi
+<https://doi.org/10.1016/j.cplett.2007.03.107>`_'s methods are similar to
+`tablature <https://en.wikipedia.org/wiki/Tablature>`_, with a different base
+(or 2-mer in the case of Qi's method) assigned to each :math:`y` value. The best
+way visualize it is through an example.
 
 Let's look at the Randić visualization of ``GATC``:
 
