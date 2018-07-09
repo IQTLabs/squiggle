@@ -26,7 +26,7 @@ from .squiggle import transform
 @click.option("--link-y/--no-link-y", default=False, help="Whether to link the y axes for separate plotting. Defaults to false.")
 @click.option("-o", "--output", type=click.Path(dir_okay=False, exists=False), help="The output file for the visualization. If not provided, will open visualization in browser. The filetype must be .html")
 @click.option("--offline", is_flag=True, default=False, help="Whether to include the resources needed to plot offline when outputting to file. Defaults to false.")
-@click.option('--method', type=click.Choice(['squiggle', 'gates', "yau", "randic", "qi"]), default="squiggle", help="The visualization method.")
+@click.option('--method', type=click.Choice(['squiggle', 'gates', "yau", "yau-bp", "randic", "qi"]), default="squiggle", help="The visualization method.")
 @click.option("-d", "--dimensions", nargs=2, type=int, metavar='WIDTH HEIGHT', help="The width and height of the plot, respectively. If not provided, will default to 750x500.")
 @click.option("--skip/--no-skip", default=False, help="Whether to skip any warnings. Defaults to false.")
 def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip):
@@ -56,6 +56,8 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
                   "y": "A-T axis"},
         "yau": {"x": None,
                 "y": None},
+        "yau-bp": {"x": "position (BP)",
+                   "y": None},
         "randic": {"x": "position (BP)",
                    "y": "nucleotide"},
         "qi": {"x": "position (BP)",

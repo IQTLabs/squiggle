@@ -97,6 +97,17 @@ It produces a visualization of β-globin like this::
 .. raw:: html
     :file: figures/human_hbb_yau.html
 
+Yau-BP
+------
+
+Unique to Squiggle is the Yau-BP method, a slight modification of Yau's method
+that ensures that the :math:`x` axis is equivalent to the base position. It
+preserves that salient feature of the method, which is the purine/pyrimidine
+split.
+
+.. raw:: html
+    :file: figures/yau-bp_bases.html
+
 Randić and Qi
 -------------
 

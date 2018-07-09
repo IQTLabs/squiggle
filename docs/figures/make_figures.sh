@@ -4,6 +4,7 @@ python squiggle_bases.py
 squiggle ../../example_seqs/human_HBB.fasta -d 650 650 -o human_hbb_gates.html  --method=gates
 squiggle ../../example_seqs/human_HBB.fasta -d 650 325 -o human_hbb_yau.html --method=yau
 python yau_bases.py
+python yau-bp_bases.py
 squiggle ../../example_seqs/test.fasta -d 650 325 -o randic_example.html -t "GATC" --method=randic
 squiggle ../../example_seqs/human_HBB.fasta -d 650 325 -o human_hbb_randic.html --method=randic --skip
 squiggle ../../example_seqs/human_HBB.fasta -d 650 325 -o human_hbb_qi.html --method=qi --skip

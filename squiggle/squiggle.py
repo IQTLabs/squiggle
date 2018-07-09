@@ -27,6 +27,8 @@ def transform(sequence, method="squiggle"):
         ([0, 0, 0, 1, 0], [0, -1, 0, 0, 0])
         >>> transform("ATGC", method="yau")
         ([0, 0.5, 1.0, 1.8660254037844386, 2.732050807568877], [0, -0.8660254037844386, 0.0, -0.5, 0.0])
+        >>> transform("ATGC", method="yau")
+        ([0, 1, 2, 3, 4], [0, -1, 0, -0.5, 0.0])
         >>> transform("ATGC", method="randic")
         ([0, 1, 2, 3], [3, 2, 1, 0])
         >>> transform("ATGC", method="qi")
@@ -91,6 +93,24 @@ def transform(sequence, method="squiggle"):
                 y.append(y[-1] - 0.5)
             elif character == "C":
                 x.append(x[-1] + ((3**0.5) / 2))
+                y.append(y[-1] + 0.5)
+            else:
+                raise ValueError("Invalid character in sequence: " + character + ". Yau's method does not support non-ATGC bases. Try using method=squiggle.")
+
+    elif method == "yau-bp":
+        x, y = [0], [0]
+        for character in sequence:
+            if character == "A":
+                x.append(x[-1] + 1)
+                y.append(y[-1] - 1)
+            elif character == "T":
+                x.append(x[-1] + 1)
+                y.append(y[-1] + 1)
+            elif character == "G":
+                x.append(x[-1] + 1)
+                y.append(y[-1] - 0.5)
+            elif character == "C":
+                x.append(x[-1] + 1)
                 y.append(y[-1] + 0.5)
             else:
                 raise ValueError("Invalid character in sequence: " + character + ". Yau's method does not support non-ATGC bases. Try using method=squiggle.")
