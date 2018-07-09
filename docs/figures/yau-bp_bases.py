@@ -4,13 +4,13 @@ from bokeh.layouts import gridplot
 
 output_file("yau-bp_bases.html")
 
-p = figure(plot_width=500, plot_height=500, title="Yau-BP vectors")
+p = figure(plot_width=500, plot_height=350, title="Yau-BP vectors")
 
 # plot the lines
 p.line(x=[0, 1], y=[0, 1], color="red", legend="T")
 p.line(x=[0, 1], y=[0, 0.5], color="black", legend="C")
 p.line(x=[0, 1], y=[0, -0.5], color="green", legend="G")
-p.line(x=[0, 1], y=[0, 1], color="blue", legend="A")
+p.line(x=[0, 1], y=[0, -1], color="blue", legend="A")
 
 
 # plot the arrows
