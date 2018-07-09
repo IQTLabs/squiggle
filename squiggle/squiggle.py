@@ -32,8 +32,8 @@ def transform(sequence, method="squiggle"):
         >>> transform("ATGC", method="qi")
         ([0, 1, 2], [8, 7, 11])
 
-    Note:
-        The entire sequence must be able to fit in memoryself.
+    Warning:
+        The entire sequence must be able to fit in memory.
 
     Raises:
         ValueError: When an invalid character is in the sequence.
