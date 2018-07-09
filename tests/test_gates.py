@@ -24,3 +24,7 @@ def test_endpoint(s):
     transformed = transform(s, method="gates")
     assert transformed[0][-1] == s.count("G") - s.count("C")
     assert transformed[1][-1] == s.count("T") - s.count("A")
+
+def test_bad_seq():
+    with pytest.raises(ValueError):
+        transform("INVALID", method="gates")

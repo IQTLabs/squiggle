@@ -37,3 +37,9 @@ def test_qi(s):
             assert transformed[1][i] == qi[s[i:i + 2]]
         except IndexError:
             pass
+
+def test_bad_seq():
+    with pytest.raises(ValueError):
+        transform("INVALID", method="randic")
+    with pytest.raises(ValueError):
+        transform("INVALID", method="qi")

@@ -24,3 +24,7 @@ def test_end_x_value(s):
 @given(text(alphabet="ATGC"))
 def test_end_y_value(s):
     assert transform(s, method="yau")[1][-1] == approx((-(3**0.5) / 2 * s.count("A")) + ((3**0.5) / 2 * s.count("T")) + (0.5 * s.count("C")) + (-0.5 * s.count("G")))
+
+def test_bad_seq():
+    with pytest.raises(ValueError):
+        transform("INVALID", method="yau")

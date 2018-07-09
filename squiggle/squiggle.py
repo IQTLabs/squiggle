@@ -116,7 +116,7 @@ def transform(sequence, method="squiggle"):
             try:
                 y.append(mapping[k_mer])
             except KeyError:
-                raise ValueError("Invalid character in sequence: " + character + ". Qi's method does not support non-ATGC bases. Try using method=squiggle.")
+                raise ValueError("Invalid k-mer in sequence: " + k_mer + ". Qi's method does not support non-ATGC bases. Try using method=squiggle.")
 
     else:
         raise ValueError("Invalid method. Valid methods are 'squiggle', 'gates', 'yau', and 'randic'.")
