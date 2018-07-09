@@ -121,6 +121,11 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
         else:
             _fig = fig[0]
 
+        # if just plotting on sequence, title it with the name of the sequence
+        if len(seqs) == 1 and _fig.title is None:
+            _fig.title = annotations.Title()
+            _fig.title.text = seq.name
+
         # randic and qi method's have categorical y axes
         if method == "randic":
             y = list(seq)
@@ -134,7 +139,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
         _fig.line(x=transformed[0],
                   y=y,
                   line_width=width,
-                  legend=seq.name if color and not separate else None,
+                  legend=seq.name if color and not separate and len(seqs) > 1 else None,
                   color=palette[i + 1 if i > 2 else 3][i] if color else "black")
 
         _fig.toolbar.logo = None

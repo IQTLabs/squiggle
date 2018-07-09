@@ -1,3 +1,5 @@
+ .. _methods:
+
 Visualization Methods
 =====================
 
@@ -39,7 +41,7 @@ This encoding method has several handy features:
 - The overall GC-content can be inferred from at a glance based on whether the endpoint of the graph is above or below zero.
 - `Regions inside the gene with varying GC-content <https://en.wikipedia.org/wiki/CpG_site>`_ can be seen as peaks and valleys.
 - Is limited to quadrants I and IV and is a function
-- The x-axis corresponds directly with nucleotide position
+- The :math:`x`-axis corresponds directly with nucleotide position
 
 For an example, let's look at the human β-globin gene using the squiggle method::
 
@@ -82,7 +84,7 @@ Specifically,
 
 .. Warning::
 
-   The x-coordinate in Yau's method is not equivalent to base position.
+   The :math:`x`-coordinate in Yau's method is not equivalent to base position.
 
 .. raw:: html
     :file: figures/yau_bases.html

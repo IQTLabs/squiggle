@@ -48,6 +48,7 @@ Table of Contents
    :maxdepth: 2
 
    methods
+   user_guide
    api
    cli
    license
