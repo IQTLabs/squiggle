@@ -1,3 +1,5 @@
+ .. _guide:
+
 User Guide
 ==========
 
@@ -34,7 +36,7 @@ If your FASTA file has multiple sequences, they will get plotted together
 automatically. If, however, your sequences are in separate files, you can still
 plot them together by passing multiple files to Squiggle::
 
-    $ squiggle human_HBB.fasta chimpanzee_HBB.fasta
+    $ squiggle human_HBB.fasta chimpanzee_HBB.fasta norway_rat_HBB.fasta rhesus_HBB.fasta
 
 .. raw:: html
     :file: figures/multiple.html

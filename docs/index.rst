@@ -27,18 +27,32 @@ into this:
 .. raw:: html
     :file: figures/human_hbb.html
 
+Installation
+------------
 
-.. |Build Status| image:: https://travis-ci.org/Benjamin-Lee/squiggle.svg?branch=master
-   :target: https://travis-ci.org/Benjamin-Lee/squiggle
+If you don't have Python 3.4 or greater installed, be sure to `get it
+<https://www.python.org/downloads/>`_. If you do, install Squiggle with
+``pip``::
 
-.. |Cov| image:: https://codecov.io/gh/Benjamin-Lee/squiggle/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/Benjamin-Lee/squiggle
+    $ pip install squiggle
 
-.. |Docs| image:: http://readthedocs.org/projects/freqgen/badge/?version=latest
-   :target: http://squiggle.readthedocs.io/en/latest/?badge=latest
+Or alternatively, if you want to get the latest development version::
 
-.. |CodeFactor| image:: https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/badge
-   :target: https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/
+    $ pip install git+https://github.com/Benjamin-Lee/squiggle.git
+
+Usage
+-----
+
+Using squiggle is as easy as::
+
+    $ squiggle your_sequence.fasta
+
+For full a full rundown on how to use Squiggle, take a look at the :ref:`guide`.
+
+Citation
+--------
+
+To be determined!
 
 
 Table of Contents
@@ -60,3 +74,15 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. |Build Status| image:: https://travis-ci.org/Benjamin-Lee/squiggle.svg?branch=master
+   :target: https://travis-ci.org/Benjamin-Lee/squiggle
+
+.. |Cov| image:: https://codecov.io/gh/Benjamin-Lee/squiggle/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/Benjamin-Lee/squiggle
+
+.. |Docs| image:: http://readthedocs.org/projects/freqgen/badge/?version=latest
+   :target: http://squiggle.readthedocs.io/en/latest/?badge=latest
+
+.. |CodeFactor| image:: https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/badge
+   :target: https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/
