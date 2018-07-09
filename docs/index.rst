@@ -38,7 +38,7 @@ If you don't have Python 3.4 or greater installed, be sure to `get it
 
 Or alternatively, if you want to get the latest development version::
 
-    $ pip install git+https://github.com/Benjamin-Lee/squiggle.git
+    $ pip install git+https://github.com/Lab41/squiggle.git
 
 Usage
 -----
@@ -75,14 +75,14 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-.. |Build Status| image:: https://travis-ci.org/Benjamin-Lee/squiggle.svg?branch=master
-   :target: https://travis-ci.org/Benjamin-Lee/squiggle
+.. |Build Status| image:: https://travis-ci.org/Lab41/squiggle.svg?branch=master
+   :target: https://travis-ci.org/Lab41/squiggle
 
-.. |Cov| image:: https://codecov.io/gh/Benjamin-Lee/squiggle/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/Benjamin-Lee/squiggle
+.. |Cov| image:: https://codecov.io/gh/Lab41/squiggle/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/Lab41/squiggle
 
 .. |Docs| image:: http://readthedocs.org/projects/freqgen/badge/?version=latest
    :target: http://squiggle.readthedocs.io/en/latest/?badge=latest
 
-.. |CodeFactor| image:: https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/badge
-   :target: https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/
+.. |CodeFactor| image:: https://www.codefactor.io/repository/github/Lab41/squiggle/badge
+   :target: https://www.codefactor.io/repository/github/Lab41/squiggle/

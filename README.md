@@ -1,8 +1,8 @@
 # Squiggle
 
-[![Build Status](https://travis-ci.org/Benjamin-Lee/squiggle.svg?branch=master)](https://travis-ci.org/Benjamin-Lee/squiggle)
-[![Cov](https://codecov.io/gh/Benjamin-Lee/squiggle/branch/master/graph/badge.svg)](https://codecov.io/gh/Benjamin-Lee/squiggle)
-[![CodeFactor](https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/badge)](https://www.codefactor.io/repository/github/Benjamin-Lee/squiggle/)
+[![Build Status](https://travis-ci.org/Lab41/squiggle.svg?branch=master)](https://travis-ci.org/Lab41/squiggle)
+[![Cov](https://codecov.io/gh/Lab41/squiggle/branch/master/graph/badge.svg)](https://codecov.io/gh/Lab41/squiggle)
+[![CodeFactor](https://www.codefactor.io/repository/github/Lab41/squiggle/badge)](https://www.codefactor.io/repository/github/Lab41/squiggle/)
 [![Docs](http://readthedocs.org/projects/freqgen/badge/?version=latest)](http://squiggle.readthedocs.io/en/latest/?badge=latest)
 
 Squiggle is a two-dimensional DNA sequence visualization library that can turn
@@ -31,7 +31,7 @@ Installation is as simple as:
 
 Or alternatively, if you want to get the latest development version:
 
-    $ pip install git+https://github.com/Benjamin-Lee/squiggle.git
+    $ pip install git+https://github.com/Lab41/squiggle.git
 
 ## Usage
 
