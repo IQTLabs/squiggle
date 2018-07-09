@@ -153,7 +153,9 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
 
     # lay out the figure
     if separate:
-        plot = gridplot(fig, ncols=math.ceil(len(fig)**0.5) if cols == 0 else cols) # note that 0 denotes the automatic default
+        plot = gridplot(fig,
+                        ncols=math.ceil(len(fig)**0.5) if cols == 0 else cols,
+                        toolbar_options=dict(logo=None)) # note that 0 denotes the automatic default
     else:
         plot = fig[0]
 
