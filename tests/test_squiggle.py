@@ -28,3 +28,7 @@ def test_transform_multiple():
 def test_length(s):
     transformed = transform(s)
     assert len(transformed[0]) == len(transformed[1]) == 2 * len(s) + 1 # the extra 1 is for the starting (0, 0) coord
+
+def test_invalid_method():
+    with pytest.raises(ValueError):
+        transform("", method="invalid")
