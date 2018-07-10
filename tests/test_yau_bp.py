@@ -13,3 +13,7 @@ def test_end_x_value(s):
 @given(text(alphabet="ATGC"))
 def test_end_y_value(s):
     assert transform(s, method="yau-bp")[1][-1] == approx(s.count("T") - s.count("A") + 0.5 * (s.count("C") - s.count("G")))
+
+def test_invalid():
+    with pytest.raises(ValueError):
+        transform("invalid", method="yau-bp")
