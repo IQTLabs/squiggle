@@ -18,7 +18,7 @@ URL = 'https://github.com/Benjamin-Lee/squiggle'
 EMAIL = 'benjamindlee@me.com'
 AUTHOR = 'Benjamin Lee'
 REQUIRES_PYTHON = '>=3.4.0'
-VERSION = 0.1
+VERSION = "0.1.1"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
@@ -119,8 +119,14 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: Implementation :: CPython',
+        "Development Status :: 4 - Beta",
+        "Topic :: Scientific/Engineering :: Bio-Informatics",
+        "Topic :: Scientific/Engineering :: Visualization",
+        "Intended Audience :: Science/Research",
     ],
     # $ setup.py publish support.
     cmdclass={
