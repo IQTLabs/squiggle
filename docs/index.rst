@@ -6,7 +6,8 @@
 Squiggle
 ========
 
-|Build Status| |Cov| |CodeFactor| |Docs|
+|Build Status| |Cov| |CodeFactor| |Docs| |PyPI|
+
 
 Squiggle is a two-dimensional DNA sequence visualization library that can turn
 this:
@@ -86,3 +87,6 @@ Indices and tables
 
 .. |CodeFactor| image:: https://www.codefactor.io/repository/github/Lab41/squiggle/badge
    :target: https://www.codefactor.io/repository/github/Lab41/squiggle/
+
+.. |PyPI| image:: https://img.shields.io/pypi/v/squiggle.svg
+   :target: https://pypi.org/project/squiggle/

@@ -4,6 +4,7 @@
 [![Cov](https://codecov.io/gh/Lab41/squiggle/branch/master/graph/badge.svg)](https://codecov.io/gh/Lab41/squiggle)
 [![CodeFactor](https://www.codefactor.io/repository/github/Lab41/squiggle/badge)](https://www.codefactor.io/repository/github/Lab41/squiggle/)
 [![Docs](http://readthedocs.org/projects/freqgen/badge/?version=latest)](http://squiggle.readthedocs.io/en/latest/?badge=latest)
+![PyPI](https://img.shields.io/pypi/v/squiggle.svg)
 
 Squiggle is a two-dimensional DNA sequence visualization library that can turn
 this:
