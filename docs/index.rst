@@ -44,7 +44,7 @@ Or alternatively, if you want to get the latest development version::
 Usage
 -----
 
-Using squiggle is as easy as::
+Using Squiggle is as easy as::
 
     $ squiggle your_sequence.fasta
 
