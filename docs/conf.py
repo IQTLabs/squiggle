@@ -92,7 +92,6 @@ html_theme_options = {
     "github_user": "Lab41",
     "github_repo": "squiggle",
     "github_button": False,
-    "travis_button": True,
     "show_related": True,
 }
 
