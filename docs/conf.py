@@ -91,6 +91,8 @@ html_theme_options = {
     "sidebar_collapse": False,
     "github_user": "benjamin-lee",
     "github_repo": "squiggle",
+    "github_button": False,
+    "travis_button": True,
     "show_related": True,
 }
 
