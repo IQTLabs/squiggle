@@ -89,7 +89,7 @@ html_theme = 'alabaster'
 html_theme_options = {
     "fixed_sidebar": True,
     "sidebar_collapse": False,
-    "github_user": "Lab41",
+    "github_user": "Benjamin-Lee",
     "github_repo": "squiggle",
     "github_button": False,
     "show_related": True,
