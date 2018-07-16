@@ -10,7 +10,7 @@ Squiggle
 
 
 Squiggle is a two-dimensional DNA sequence visualization library that can turn
-this:
+FASTA sequence files like this:
 
 .. code-block:: text
 
@@ -23,7 +23,7 @@ this:
     TCACTTTGGCAAAGAATTCACCCCACCAGTGCAGGCTGCCTATCAGAAAGTGGTGGCTGGTGTGGCTAAT
     GCCCTGGCCCACAAGTATCACTAA
 
-into this:
+into gorgeous, interactive visualizations like this:
 
 .. raw:: html
     :file: figures/human_hbb.html
@@ -32,12 +32,12 @@ Installation
 ------------
 
 If you don't have Python 3.4 or greater installed, be sure to `get it
-<https://www.python.org/downloads/>`_. If you do, install Squiggle with
-``pip``::
+<https://www.python.org/downloads/>`_. To get the current stable version of
+Squiggle, run::
 
     $ pip install squiggle
 
-Or alternatively, if you want to get the latest development version::
+Or, alternatively, if you want to get the latest development version::
 
     $ pip install git+https://github.com/Lab41/squiggle.git
 
@@ -48,7 +48,9 @@ Using Squiggle is as easy as::
 
     $ squiggle your_sequence.fasta
 
-For full a full rundown on how to use Squiggle, take a look at the :ref:`guide`.
+Squiggle has tons of options available to make beautiful, interactive
+visualizations of DNA sequences. To get a full rundown of the various option,
+take a look at the :ref:`guide`.
 
 Citation
 --------
