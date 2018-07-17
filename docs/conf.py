@@ -90,7 +90,6 @@ html_theme_options = {
     "fixed_sidebar": True,
     "sidebar_collapse": False,
     "show_related": True,
-    "travis_button": "Lab41/squiggle",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
