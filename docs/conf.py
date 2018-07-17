@@ -89,11 +89,8 @@ html_theme = 'alabaster'
 html_theme_options = {
     "fixed_sidebar": True,
     "sidebar_collapse": False,
-    "github_user": "Lab41",
-    "github_repo": "squiggle",
     "show_related": True,
-    "github_button": False,
-    "travis_button": True,
+    "travis_button": "Lab41/squiggle",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
