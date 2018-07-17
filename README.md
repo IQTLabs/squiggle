@@ -21,7 +21,7 @@ FASTA sequence files like this:
 into gorgeous, interactive visualizations like this:
 
 <p align ="center">
-    <img src="/images/human_HBB_squiggle.png" alt="Human Squiggle" width="750px"/>
+    <img src="https://github.com/Lab41/squiggle/raw/master/images/human_HBB_squiggle.png" alt="Human Squiggle" width="750px"/>
 </p>
 
 ## Installation
