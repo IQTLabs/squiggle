@@ -18,7 +18,7 @@ def transform(sequence, method="squiggle"):
         method (str): The method by which to transform the sequence. Defaults to "squiggle". Valid options are ``squiggle``, ``gates``, ``yau``, ``randic`` and ``qi``.
 
     Returns:
-        tuple: A tuple containing two lists: one for the x coordinates and one for the y coodinates.
+        tuple: A tuple containing two lists: one for the x coordinates and one for the y coordinates.
 
     Example:
         >>> transform("ATGC")
