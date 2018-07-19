@@ -90,7 +90,6 @@ html_theme_options = {
     "fixed_sidebar": True,
     "sidebar_collapse": False,
     "show_related": True,
-    'logo': '../../images/logo.png'
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -107,6 +106,7 @@ html_static_path = ['_static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
+html_logo = "../../images/logo.png"
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
