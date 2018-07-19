@@ -90,7 +90,7 @@ html_theme_options = {
     "fixed_sidebar": True,
     "sidebar_collapse": False,
     "show_related": True,
-    'logo': '../../imaages/logo.png'
+    'logo': '../../images/logo.png'
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
