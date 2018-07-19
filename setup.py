@@ -18,7 +18,7 @@ URL = 'https://github.com/Benjamin-Lee/squiggle'
 EMAIL = 'benjamindlee@me.com'
 AUTHOR = 'Benjamin Lee'
 REQUIRES_PYTHON = '>=3.4.0'
-VERSION = "0.1.1"
+VERSION = "0.1.2"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
