@@ -90,6 +90,7 @@ html_theme_options = {
     "fixed_sidebar": True,
     "sidebar_collapse": False,
     "show_related": True,
+    "description": "DNA Sequence visualization for humans."
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -106,7 +107,7 @@ html_static_path = ['_static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-html_logo = "../../images/logo.png"
+html_logo = "just_s.png"
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
