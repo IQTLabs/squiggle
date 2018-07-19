@@ -1,6 +1,6 @@
 # Squiggle
 
-![Logo][https://github.com/Lab41/squiggle/raw/master/images/logo.png]
+![Logo](https://github.com/Lab41/squiggle/raw/master/images/logo.png)
 
 [![Build Status](https://travis-ci.org/Lab41/squiggle.svg?branch=master)](https://travis-ci.org/Lab41/squiggle)
 [![Cov](https://codecov.io/gh/Lab41/squiggle/branch/master/graph/badge.svg)](https://codecov.io/gh/Lab41/squiggle)
