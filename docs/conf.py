@@ -90,7 +90,6 @@ html_theme_options = {
     "fixed_sidebar": True,
     "sidebar_collapse": False,
     "show_related": True,
-    "logo_name": False,
     "description": "DNA Sequence visualization for humans."
 }
 

@@ -1,5 +1,3 @@
-# Squiggle
-
 ![Logo](https://github.com/Lab41/squiggle/raw/master/images/logo.png)
 
 [![Build Status](https://travis-ci.org/Lab41/squiggle.svg?branch=master)](https://travis-ci.org/Lab41/squiggle)
