@@ -9,8 +9,8 @@ Squiggle
 |Build Status| |Cov| |CodeFactor| |Docs| |PyPI|
 
 
-Squiggle is a two-dimensional DNA sequence visualization library that can turn
-FASTA sequence files like this:
+`Squiggle <https://github.com/Lab41/squiggle>`_ is a two-dimensional DNA
+sequence visualization library that can turn FASTA sequence files like this:
 
 .. code-block:: text
 
