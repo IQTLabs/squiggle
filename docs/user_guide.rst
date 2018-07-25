@@ -63,9 +63,27 @@ Note that when plotting seperately, Squiggle will try to make the layout as
 square as possible. If you want to specify the number of columns, you can do so
 with the ``-c`` option.
 
-Also, be aware that, when plotting multiple sequences, clicking on the name of
-the sequence in the legend will hide that sequence's graph. This behavior can be
-deactivated with the ``--hide/--no-hide`` flag.
+If you want to compare FASTA files, you can use the ``--mode=file`` flag to
+treat each file as a separate entity, as opposed to each sequence. The
+``--mode=auto`` flag (which is the default) will attempt to visualize each
+sequence independently unless there are too many, in which case it will switch
+to file mode.
+
+As an example, let's compare the highly expressed genes of *E. coli* and *B. anthracis*::
+
+    $ squiggle ecol.heg.fasta banth1.heg.fasta
+
+.. raw:: html
+    :file: figures/file_mode.html
+
+Also, be aware that the ``--hide`` flag will make it so that clicking on the
+name of a sequence or file in the legend will hide it for easier comparisons.
+
+
+.. note::
+
+    Using the ``--hide`` flag may result in a significant slowdown when
+    visualizing a large number of sequences.
 
 Finally, the palette can be controlled by the ``-p`` option. Valid palettes can
 be seen `here <https://bokeh.pydata.org/en/latest/docs/reference/palettes.html>`_::
