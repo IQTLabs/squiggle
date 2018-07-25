@@ -1,5 +1,6 @@
 import numpy as np
 from itertools import islice
+from tqdm import tqdm
 
 def _k_mers(sequence, k):
     it = iter(sequence)
@@ -10,12 +11,13 @@ def _k_mers(sequence, k):
         result = result[1:] + (elem,)
         yield "".join(result)
 
-def transform(sequence, method="squiggle"):
+def transform(sequence, method="squiggle", bar=False):
     '''Transforms a DNA sequence into a series of coordinates for 2D visualization.
 
     Args:
         sequence (str): The DNA sequence to transform.
         method (str): The method by which to transform the sequence. Defaults to "squiggle". Valid options are ``squiggle``, ``gates``, ``yau``, ``randic`` and ``qi``.
+        bar (bool): Whether to display a progress bar. Defaults to false.
 
     Returns:
         tuple: A tuple containing two lists: one for the x coordinates and one for the y coordinates.
@@ -42,6 +44,9 @@ def transform(sequence, method="squiggle"):
     '''
 
     sequence = sequence.upper()
+
+    if bar:
+        sequence = tqdm(sequence, unit=" bases", leave=False)
 
     if method == "squiggle":
         running_value = 0
@@ -153,5 +158,8 @@ def transform(sequence, method="squiggle"):
 
     else:
         raise ValueError("Invalid method. Valid methods are 'squiggle', 'gates', 'yau', and 'randic'.")
+
+    if bar:
+        sequence.close()
 
     return x, y
