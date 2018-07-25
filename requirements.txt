@@ -3,3 +3,4 @@ biopython
 tqdm
 click
 numpy
+python-box

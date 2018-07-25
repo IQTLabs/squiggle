@@ -3,6 +3,7 @@ import math
 import click
 from Bio import SeqIO
 from tqdm import tqdm
+from box import Box
 
 from bokeh.plotting import figure, show, save, output_file
 from bokeh.palettes import small_palettes
@@ -10,14 +11,14 @@ from bokeh.layouts import gridplot
 from bokeh.models import annotations
 from bokeh.resources import INLINE
 
-from .squiggle import transform
+from squiggle import transform
 
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.argument("FASTA", type=click.Path(dir_okay=False, exists=True), nargs=-1)
 @click.option("-w", "--width", default=1, type=float, help="The width of the line. Defaults to 1.")
 @click.option("-p", "--palette", type=str, default="Category10", help="Which color palette to use. Choose from bokeh.pydata.org/en/latest/docs/reference/palettes.html. Defaults to Category20.")
 @click.option("--color/--no-color", default=True, help="Whether to plot the visualizations in color.")
-@click.option('--hide/--no-hide', default=True, help="Whether to hide sequences when clicked in the legend. Defaults to false if plotting one sequence and true if plotting multiple.")
+@click.option('--hide/--no-hide', default=False, help="Whether to hide sequences when clicked in the legend. Defaults to false if plotting one sequence and true if plotting multiple.")
 @click.option('--bar/--no-bar', default=True, help="Whether to show a progress bar when processing multiple sequences. Defaults to true.")
 @click.option("-t", "--title", type=str, help="A title to display when plotting sequences together.")
 @click.option("--separate", is_flag=True, help="Whether to plot the visualizations separately.")
@@ -29,8 +30,8 @@ from .squiggle import transform
 @click.option('--method', type=click.Choice(['squiggle', 'gates', "yau", "yau-bp", "randic", "qi"]), default="squiggle", help="The visualization method.")
 @click.option("-d", "--dimensions", nargs=2, type=int, metavar='WIDTH HEIGHT', help="The width and height of the plot, respectively. If not provided, will default to 750x500.")
 @click.option("--skip/--no-skip", default=False, help="Whether to skip any warnings. Defaults to false.")
-def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip):
-
+@click.option('--mode', type=click.Choice(['seq', 'file', "auto"]), default="auto", help="Whether to treat each sequence or file as the individual object. Defaults to automatic selection.")
+def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip, mode):
     # check filetype
     if fasta is None:
         raise ValueError("Must provide FASTA file.")
@@ -42,10 +43,31 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
     if not dimensions:
         dimensions = (750, 500)
 
-    # get all the sequences
-    seqs = [record for _f in fasta for record in SeqIO.parse(_f, "fasta")]
+    if len([record for _f in fasta for record in SeqIO.parse(_f, "fasta")]) > len(palette) and mode != "file":
+        if len(fasta) > 1 and mode == "auto":
+            if not skip:
+                print("Visualizing each file in separate color. To override, provide mode selection.")
+            mode = "file"
+        else:
+            print("Visualizing each sequence in black.")
+            color = False
+    elif mode == "auto":
+        mode = "seq"
 
-    if max([len(seq) for seq in seqs]) > 25 and method in ["qi", "randic"] and not skip:
+    # get all the sequences
+    seqs = []
+    color_counter = 0
+    for i, _f in enumerate(fasta):
+        for j, seq in enumerate(SeqIO.parse(_f, "fasta")):
+            seqs.append(Box(color=palette[color_counter + 1 if color_counter > 2 else 3][color_counter] if color else "black",
+                            name=_f if mode == "file" else seq.name,
+                            raw_seq=seq))
+            if mode == "seq":
+                color_counter += 1
+        if mode == "file":
+            color_counter += 1
+
+    if max([len(seq.raw_seq) for seq in seqs]) > 25 and method in ["qi", "randic"] and not skip:
         click.confirm("This method is not well suited to a sequence of this length. "
                       "Do you want to continue?", abort=True)
 
@@ -64,7 +86,15 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
                "y": "dinucleotide"}
     }
 
-    fig_count = len(seqs) if separate else 1
+    # the number of figures to draw is either the number of sequences or files (or 1)
+    if separate:
+        if mode == "seq":
+            fig_count = len(seqs)
+        elif mode == "file":
+            fig_count = len(fasta)
+    else:
+        fig_count = 1
+
     fig = []
     for i in range(fig_count):
 
@@ -109,54 +139,80 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
 
     # show a progress bar if processing multiple files
     if len(seqs) > 1 and bar:
-        seqs = tqdm(seqs, unit=" seqs", leave=False)
+        _seqs = tqdm(seqs, unit=" seqs", leave=False)
+    else:
+        _seqs = seqs
 
-    for i, seq in enumerate(seqs):
+    for i, seq in enumerate(_seqs):
         # perform the actual transformation
-        transformed = transform(seq.seq, method=method)
+        transformed = transform(seq.raw_seq, method=method)
 
         # figure (no pun intended) which figure to plot the data on
         if separate:
-            _fig = fig[i]
+            if mode == "seq":
+                _fig = fig[i]
+            elif mode == "file":
+                _fig = fig[fasta.index(seq.name)]
+
+            # add a title to the plot
             _fig.title = annotations.Title()
-            _fig.title.text = seq.name
+            if mode == "seq":
+                _fig.title.text = seq.name
+            elif mode == "file":
+                _fig.title.text = click.format_filename(seq.name, shorten=True)
         else:
             _fig = fig[0]
-
-        # if just plotting on sequence, title it with the name of the sequence
-        if len(seqs) == 1 and _fig.title is None:
             _fig.title = annotations.Title()
-            _fig.title.text = seq.name
+
+            # if only plotting on one figure, set up the title
+            if title:
+                _fig.title.text = title
+            elif len(seqs) > 1 and not title and len(fasta) == 1:
+                _fig.title.text = click.format_filename(fasta[0], shorten=True)
+            elif len(seqs) == 1:
+                # if just plotting one sequence, title it with the name of the sequence
+                _fig.title.text = seq.name
 
         # randic and qi method's have categorical y axes
         if method == "randic":
-            y = list(seq)
+            y = list(seq.raw_seq)
         elif method == "qi":
-            y = [seq.seq[i:i + 2] for i in range(len(seq))]
+            y = [seq.raw_seq[i:i + 2].seq for i in range(len(seq.raw_seq))]
             y = [str(i) for i in y if len(i) == 2]
         else:
             y = transformed[1]
 
-        # do the actual plotting
+        # figure out whether to add a legend
+        if (separate or not color or mode == "file" or len(seqs) == 1) and not hide:
+            legend = None
+        else:
+            legend = click.format_filename(seq.name, shorten=True)
+
+        # optimization for comparing large FASTA files without hiding
+        try:
+            if mode == "file" and seqs[i + 1].color != seq.color and not separate:
+                legend = click.format_filename(seq.name, shorten=True)
+        except IndexError:
+            if mode == "file" and not separate:
+                legend = click.format_filename(seq.name, shorten=True)
+
+    # do the actual plotting
         _fig.line(x=transformed[0],
                   y=y,
                   line_width=width,
-                  legend=seq.name if color and not separate and len(seqs) > 1 else None,
-                  color=palette[i + 1 if i > 2 else 3][i] if color else "black")
-
-        _fig.toolbar.logo = None
+                  legend=legend,
+                  color=seq.color)
 
         # set up the legend
         _fig.legend.location = "top_left"
-        if len(seqs) > 1 and hide:
+        if hide:
             _fig.legend.click_policy = "hide"
 
+    # clean up the tqdm bar
     try:
-        seqs.close()
+        _seqs.close()
     except AttributeError:
         pass
-
-    print("Generating graph...")
 
     # lay out the figure
     if separate:
