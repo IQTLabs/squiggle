@@ -14,4 +14,4 @@ squiggle ../../example_seqs/human_HBB.fasta ../../example_seqs/chimpanzee_HBB.fa
 squiggle ../../example_seqs/human_HBB.fasta ../../example_seqs/chimpanzee_HBB.fasta -d 650 325 -p Accent -o colors.html
 squiggle ../../example_seqs/human_HBB.fasta -d 650 150 -o dimensions.html
 squiggle ../../example_seqs/human_HBB.fasta  -d 650 325 -o title.html -t β-globin
-squiggle ../../example_seqs/ecol.heg.fasta ../../example_seqs/banth1.heg.fasta -d 650 325 -o file_mode.html
+squiggle ../../example_seqs/ecol.heg.fasta ../../example_seqs/banth1.heg.fasta -d 650 325 -o file_mode.html --skip

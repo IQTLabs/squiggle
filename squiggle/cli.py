@@ -57,20 +57,30 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
     # get all the sequences
     seqs = []
     color_counter = 0
+    warned = False
     for i, _f in enumerate(fasta):
         for j, seq in enumerate(SeqIO.parse(_f, "fasta")):
             seqs.append(Box(color=palette[color_counter + 1 if color_counter > 2 else 3][color_counter] if color else "black",
                             name=_f if mode == "file" else seq.name,
                             raw_seq=seq))
+
+            # check the length of the seq
+            if len(seq) > 10000 and not skip and not warned:
+                click.confirm("You are plotting long sequence ({} bp). This may be very slow. "
+                              "Do you want to continue?".format(len(seq)), abort=True)
+                warned = True
+
             if mode == "seq":
                 color_counter += 1
         if mode == "file":
             color_counter += 1
 
+    # warn if plotting a large number of seqs
     if len(seqs) > 500 and not skip:
         click.confirm("You are plotting a large number of sequences ({}). This may be very slow. "
                       "Do you want to continue?".format(len(seqs)), abort=True)
 
+    # warn if using a bad method
     if max([len(seq.raw_seq) for seq in seqs]) > 25 and method in ["qi", "randic"] and not skip:
         click.confirm("This method is not well suited to a sequence of this length. "
                       "Do you want to continue?", abort=True)
