@@ -126,3 +126,6 @@ provide the title::
 
 .. raw:: html
     :file: figures/title.html
+
+If applicable, you can also specify the location of the legend using the
+``--legend-loc`` flag. The default setting is to put the legend in the top left.

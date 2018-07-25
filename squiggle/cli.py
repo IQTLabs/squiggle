@@ -31,7 +31,8 @@ from squiggle import transform
 @click.option("-d", "--dimensions", nargs=2, type=int, metavar='WIDTH HEIGHT', help="The width and height of the plot, respectively. If not provided, will default to 750x500.")
 @click.option("--skip/--no-skip", default=False, help="Whether to skip any warnings. Defaults to false.")
 @click.option('--mode', type=click.Choice(['seq', 'file', "auto"]), default="auto", help="Whether to treat each sequence or file as the individual object. Defaults to automatic selection.")
-def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip, mode):
+@click.option("--legend-loc", type=click.Choice(["top_left", "top_center", "top_right", "center_right", "bottom_right", "bottom_center", "bottom_left", "center_left", "center"]), default="top_left", help="Where to put the legend, if applicable. Defaults to top left.")
+def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip, mode, legend_loc):
     # check filetype
     if fasta is None:
         raise ValueError("Must provide FASTA file.")
@@ -218,7 +219,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
                   color=seq.color)
 
         # set up the legend
-        _fig.legend.location = "top_left"
+        _fig.legend.location = legend_loc
         if hide:
             _fig.legend.click_policy = "hide"
 
