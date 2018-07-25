@@ -67,6 +67,10 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
         if mode == "file":
             color_counter += 1
 
+    if len(seqs) > 500 and not skip:
+        click.confirm("You are plotting a large number of sequences ({}). This may be very slow. "
+                      "Do you want to continue?".format(len(seqs)), abort=True)
+
     if max([len(seq.raw_seq) for seq in seqs]) > 25 and method in ["qi", "randic"] and not skip:
         click.confirm("This method is not well suited to a sequence of this length. "
                       "Do you want to continue?", abort=True)
