@@ -1,7 +1,7 @@
 import math
 
 import click
-from Bio import SeqIO
+from pyfaidx import Fasta
 from tqdm import tqdm
 from box import Box
 
@@ -44,7 +44,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
     if not dimensions:
         dimensions = (750, 500)
 
-    if len([record for _f in fasta for record in SeqIO.parse(_f, "fasta")]) > len(palette) and mode != "file":
+    if len([record for _f in fasta for record in Fasta(_f)]) > len(palette) and mode != "file":
         if len(fasta) > 1 and mode == "auto":
             if not skip:
                 print("Visualizing each file in separate color. To override, provide mode selection.")
@@ -60,7 +60,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
     color_counter = 0
     warned = False
     for i, _f in enumerate(fasta):
-        for j, seq in enumerate(SeqIO.parse(_f, "fasta")):
+        for j, seq in enumerate(Fasta(_f, sequence_always_upper=True)):
             seqs.append(Box(color=palette[color_counter + 1 if color_counter > 2 else 3][color_counter] if color else "black",
                             name=_f if mode == "file" else seq.name,
                             raw_seq=seq))
@@ -160,7 +160,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
 
     for i, seq in enumerate(_seqs):
         # perform the actual transformation
-        transformed = transform(seq.raw_seq, method=method)
+        transformed = transform(str(seq.raw_seq), method=method)
 
         # figure (no pun intended) which figure to plot the data on
         if separate:
@@ -192,7 +192,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
         if method == "randic":
             y = list(seq.raw_seq)
         elif method == "qi":
-            y = [seq.raw_seq[i:i + 2].seq for i in range(len(seq.raw_seq))]
+            y = [seq.raw_seq[i:i + 2] for i in range(len(seq.raw_seq))]
             y = [str(i) for i in y if len(i) == 2]
         else:
             y = transformed[1]

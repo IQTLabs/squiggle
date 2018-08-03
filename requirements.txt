@@ -1,5 +1,5 @@
 bokeh
-biopython
+pyfaidx
 tqdm
 click
 numpy

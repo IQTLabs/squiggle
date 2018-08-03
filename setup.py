@@ -22,7 +22,7 @@ VERSION = "0.2.0"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    "biopython", "click", "tqdm", "bokeh", "numpy", "python-box"
+    "click", "tqdm", "bokeh", "numpy", "python-box", "pyfaidx"
 ]
 
 # What packages are optional?
