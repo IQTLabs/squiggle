@@ -84,7 +84,7 @@ Indices and tables
 .. |Cov| image:: https://codecov.io/gh/Lab41/squiggle/branch/master/graph/badge.svg
    :target: https://codecov.io/gh/Lab41/squiggle
 
-.. |Docs| image:: http://readthedocs.org/projects/freqgen/badge/?version=latest
+.. |Docs| image:: http://readthedocs.org/projects/squiggle/badge/?version=latest
    :target: http://squiggle.readthedocs.io/en/latest/?badge=latest
 
 .. |CodeFactor| image:: https://www.codefactor.io/repository/github/Lab41/squiggle/badge
