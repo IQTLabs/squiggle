@@ -16,7 +16,7 @@ from squiggle import transform
 @click.command(context_settings=dict(help_option_names=['-h', '--help']))
 @click.argument("FASTA", type=click.Path(dir_okay=False, exists=True), nargs=-1)
 @click.option("-w", "--width", default=1, type=float, help="The width of the line. Defaults to 1.")
-@click.option("-p", "--palette", type=str, default="Category10", help="Which color palette to use. Choose from bokeh.pydata.org/en/latest/docs/reference/palettes.html. Defaults to Category20.")
+@click.option("-p", "--palette", type=str, default="Category10", help="Which color palette to use. Choose from bokeh.pydata.org/en/latest/docs/reference/palettes.html. Defaults to Category10.")
 @click.option("--color/--no-color", default=True, help="Whether to plot the visualizations in color.")
 @click.option('--hide/--no-hide', default=False, help="Whether to hide sequences when clicked in the legend. Defaults to false if plotting one sequence and true if plotting multiple.")
 @click.option('--bar/--no-bar', default=True, help="Whether to show a progress bar when processing multiple sequences. Defaults to true.")
@@ -69,7 +69,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
 
             # check the length of the seq
             if len(seq) > 10000 and not skip and not warned and downsample == 1:
-                click.confirm("You are plotting long sequence ({} bp). This may be very slow, although downsampling might help. "
+                click.confirm("You are plotting a long sequence ({} bp). This may be very slow, although downsampling might help. "
                               "Do you want to continue?".format(len(seq)), abort=True)
                 warned = True
 
