@@ -69,16 +69,18 @@ treat each file as a separate entity, as opposed to each sequence. The
 sequence independently unless there are too many, in which case it will switch
 to file mode.
 
-As an example, let's compare the highly expressed genes of *E. coli* and *B. anthracis*::
+As an example, let's compare the highly expressed genes of *E. coli* and *B.
+anthracis*. Because there are so many sequences, we are going to `downsample
+<https://en.wikipedia.org/wiki/Decimation_(signal_processing)>`_ them by a
+factor of 25 using the `-s` flag in order to improve performance::
 
-    $ squiggle ecol.heg.fasta banth1.heg.fasta
+    $ squiggle ecol.heg.fasta banth1.heg.fasta -s 25
 
 .. raw:: html
     :file: figures/file_mode.html
 
 Also, be aware that the ``--hide`` flag will make it so that clicking on the
 name of a sequence or file in the legend will hide it for easier comparisons.
-
 
 .. note::
 

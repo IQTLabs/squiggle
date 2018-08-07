@@ -33,7 +33,8 @@ from squiggle import transform
 @click.option('--mode', type=click.Choice(['seq', 'file', "auto"]), default="auto", help="Whether to treat each sequence or file as the individual object. Defaults to automatic selection.")
 @click.option("--legend-loc", type=click.Choice(["top_left", "top_center", "top_right", "center_right", "bottom_right", "bottom_center", "bottom_left", "center_left", "center"]), default="top_left", help="Where to put the legend, if applicable. Defaults to top left.")
 @click.option("--web-gl", is_flag=True, default=False, help="Whether to use WebGL for enhanced performance when plotting. Defaults to false.")
-def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip, mode, legend_loc, web_gl):
+@click.option("-s", "--downsample", type=int, default=1, help="The downsampling factor. Useful for handling large sequences. Default value is 1.")
+def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip, mode, legend_loc, web_gl, downsample):
     # check filetype
     if fasta is None:
         raise ValueError("Must provide FASTA file.")
@@ -64,11 +65,11 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
         for j, seq in enumerate(Fasta(_f, sequence_always_upper=True)):
             seqs.append(Box(color=palette[color_counter + 1 if color_counter > 2 else 3][color_counter] if color else "black",
                             name=_f if mode == "file" else seq.name,
-                            raw_seq=seq))
+                            raw_seq=str(seq)))
 
             # check the length of the seq
-            if len(seq) > 10000 and not skip and not warned:
-                click.confirm("You are plotting long sequence ({} bp). This may be very slow. "
+            if len(seq) > 10000 and not skip and not warned and downsample == 1:
+                click.confirm("You are plotting long sequence ({} bp). This may be very slow, although downsampling might help. "
                               "Do you want to continue?".format(len(seq)), abort=True)
                 warned = True
 
@@ -79,7 +80,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
 
     # warn if plotting a large number of seqs
     if len(seqs) > 500 and not skip:
-        click.confirm("You are plotting a large number of sequences ({}). This may be very slow. "
+        click.confirm("You are plotting a large number of sequences ({}). This may be very slow, although downsampling might help. "
                       "Do you want to continue?".format(len(seqs)), abort=True)
 
     # warn if using a bad method
@@ -162,7 +163,8 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
 
     for i, seq in enumerate(_seqs):
         # perform the actual transformation
-        transformed = transform(str(seq.raw_seq), method=method)
+        transformed = transform(seq.raw_seq, method=method)
+        transformed = (transformed[0][::downsample], transformed[1][::downsample])
 
         # figure (no pun intended) which figure to plot the data on
         if separate:
