@@ -32,7 +32,8 @@ from squiggle import transform
 @click.option("--skip/--no-skip", default=False, help="Whether to skip any warnings. Defaults to false.")
 @click.option('--mode', type=click.Choice(['seq', 'file', "auto"]), default="auto", help="Whether to treat each sequence or file as the individual object. Defaults to automatic selection.")
 @click.option("--legend-loc", type=click.Choice(["top_left", "top_center", "top_right", "center_right", "bottom_right", "bottom_center", "bottom_left", "center_left", "center"]), default="top_left", help="Where to put the legend, if applicable. Defaults to top left.")
-def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip, mode, legend_loc):
+@click.option("--web-gl", is_flag=True, default=False, help="Whether to use WebGL for enhanced performance when plotting. Defaults to false.")
+def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, link_x, link_y, output, offline, method, dimensions, skip, mode, legend_loc, web_gl):
     # check filetype
     if fasta is None:
         raise ValueError("Must provide FASTA file.")
@@ -150,7 +151,8 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
                           x_range=x_range,
                           y_range=y_range,
                           plot_width=dimensions[0],
-                          plot_height=dimensions[1]))
+                          plot_height=dimensions[1],
+                          output_backend="webgl" if web_gl else "canvas"))
 
     # show a progress bar if processing multiple files
     if len(seqs) > 1 and bar:
