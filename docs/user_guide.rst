@@ -72,7 +72,7 @@ to file mode.
 As an example, let's compare the highly expressed genes of *E. coli* and *B.
 anthracis*. Because there are so many sequences, we are going to `downsample
 <https://en.wikipedia.org/wiki/Decimation_(signal_processing)>`_ them by a
-factor of 25 using the `-s` flag in order to improve performance::
+factor of 25 using the ``-s`` flag in order to improve performance::
 
     $ squiggle ecol.heg.fasta banth1.heg.fasta -s 25
 
