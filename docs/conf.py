@@ -87,7 +87,7 @@ html_theme = 'alabaster'
 # documentation.
 #
 html_theme_options = {
-    "fixed_sidebar": True,
+    # "fixed_sidebar": True,
     "sidebar_collapse": False,
     "show_related": True,
     "description": "DNA Sequence visualization for humans."
