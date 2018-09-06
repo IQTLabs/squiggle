@@ -1,7 +1,6 @@
 ![Logo](https://github.com/Lab41/squiggle/raw/master/images/logo.png)
 
 [![Build Status](https://travis-ci.org/Lab41/squiggle.svg?branch=master)](https://travis-ci.org/Lab41/squiggle)
-[![Cov](https://codecov.io/gh/Lab41/squiggle/branch/master/graph/badge.svg)](https://codecov.io/gh/Lab41/squiggle)
 [![CodeFactor](https://www.codefactor.io/repository/github/Lab41/squiggle/badge)](https://www.codefactor.io/repository/github/Lab41/squiggle/)
 [![Docs](http://readthedocs.org/projects/squiggle/badge/?version=latest)](http://squiggle.readthedocs.io/en/latest/?badge=latest)
 [![PyPI](https://img.shields.io/pypi/v/squiggle.svg)](https://pypi.org/project/squiggle/)
