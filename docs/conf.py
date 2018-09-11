@@ -107,7 +107,7 @@ html_static_path = ['_static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-html_logo = "just_s.png"
+html_logo = "_static/just_s.png"
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
