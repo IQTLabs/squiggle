@@ -144,4 +144,4 @@ low level :math:`x` and :math:`y` coordinates being plotted::
     >>> transform("ATGC", method="gates")
     ([0, 0, 0, 1, 0], [0, -1, 0, 0, 0])
 
-For the full details, take a look at the `API Reference`_ specification page.
+For the full details, take a look at the :ref:`API <API>` specification page.
