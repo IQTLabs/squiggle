@@ -131,3 +131,17 @@ provide the title::
 
 If applicable, you can also specify the location of the legend using the
 ``--legend-loc`` flag. The default setting is to put the legend in the top left.
+
+Python API
+----------
+
+Squiggle also has a Python API that you can interface with to get access to the
+low level :math:`x` and :math:`y` coordinates being plotted::
+
+    >>> from squiggle import transform
+    >>> transform("ATGC")
+    ([0.0, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0], [0, 0.5, 0, -0.5, -1, -0.5, 0, -0.5, 0])
+    >>> transform("ATGC", method="gates")
+    ([0, 0, 0, 1, 0], [0, -1, 0, 0, 0])
+
+For the full details, take a look at the `API Reference` specification page.
