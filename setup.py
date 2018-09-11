@@ -18,11 +18,11 @@ URL = 'https://github.com/Benjamin-Lee/squiggle'
 EMAIL = 'benjamindlee@me.com'
 AUTHOR = 'Benjamin Lee'
 REQUIRES_PYTHON = '>=3.4.0'
-VERSION = "0.3.0"
+VERSION = "0.3.1"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    "click", "tqdm", "bokeh", "numpy", "python-box", "pyfaidx>=0.5.4.2"
+    "click", "tqdm", "bokeh>=0.13.0", "numpy", "python-box", "pyfaidx>=0.5.4.2"
 ]
 
 # What packages are optional?
