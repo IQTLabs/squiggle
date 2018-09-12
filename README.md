@@ -28,8 +28,11 @@ FASTA sequence files like this:
 into gorgeous, interactive visualizations like this:
 
 <p align ="center">
+    <a href="https://htmlpreview.github.io/?https://github.com/Lab41/squiggle/blob/master/docs/figures/hbb_comparison.html">
     <img src="https://github.com/Lab41/squiggle/raw/master/images/HBB_squiggle.png" alt="Human Squiggle" width="750px"/>
 </p>
+
+(Click the picture to view an [interactive version](https://htmlpreview.github.io/?https://github.com/Lab41/squiggle/blob/master/docs/figures/hbb_comparison.html).)
 
 ## Installation
 
