@@ -6,7 +6,7 @@
 Squiggle
 ========
 
-|Build Status| |CodeFactor| |Docs| |PyPI|
+|DOI| |Build Status| |CodeFactor| |Docs| |PyPI|
 
 
 `Squiggle <https://github.com/Lab41/squiggle>`_ is a two-dimensional DNA
@@ -63,7 +63,23 @@ take a look at the :ref:`guide`.
 Citation
 --------
 
-To be determined!
+Using Squiggle in your research? Please cite it!
+
+- Lee, B. D. (2018). Squiggle: a user-friendly two-dimensional DNA sequence visualization tool. Bioinformatics. `https://doi.org/10.1093/bioinformatics/bty807 <https://doi.org/10.1093/bioinformatics/bty807>`_
+
+.. code-block:: bibtex
+
+    @article{Lee2018,
+      doi = {10.1093/bioinformatics/bty807},
+      url = {https://doi.org/10.1093/bioinformatics/bty807},
+      year  = {2018},
+      month = {sep},
+      publisher = {Oxford University Press ({OUP})},
+      author = {Benjamin D Lee},
+      editor = {John Hancock},
+      title = {Squiggle: a user-friendly two-dimensional {DNA} sequence visualization tool},
+      journal = {Bioinformatics}
+    }
 
 
 Table of Contents
@@ -85,6 +101,9 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. |DOI| image:: https://img.shields.io/badge/DOI-10.1093%2Fbioinformatics%2Fbty807-brightgreen.svg
+   :target: https://doi.org/10.1093/bioinformatics/bty807
 
 .. |Build Status| image:: https://travis-ci.org/Lab41/squiggle.svg?branch=master
    :target: https://travis-ci.org/Lab41/squiggle

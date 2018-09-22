@@ -1,5 +1,6 @@
 ![Logo](https://github.com/Lab41/squiggle/raw/master/images/logo.png)
 
+[![DOI](https://img.shields.io/badge/DOI-10.1093%2Fbioinformatics%2Fbty807-brightgreen.svg)](https://doi.org/10.1093/bioinformatics/bty807)
 [![Build Status](https://travis-ci.org/Lab41/squiggle.svg?branch=master)](https://travis-ci.org/Lab41/squiggle)
 [![CodeFactor](https://www.codefactor.io/repository/github/Lab41/squiggle/badge)](https://www.codefactor.io/repository/github/Lab41/squiggle/)
 [![Docs](http://readthedocs.org/projects/squiggle/badge/?version=latest)](http://squiggle.readthedocs.io/en/latest/?badge=latest)
@@ -58,4 +59,20 @@ take look at the documentation [here](https://squiggle.readthedocs.io).
 
 ## Citation
 
-To be determined!
+Using Squiggle in your research? Please cite it!
+
+- Lee, B. D. (2018). Squiggle: a user-friendly two-dimensional DNA sequence visualization tool. Bioinformatics. https://doi.org/10.1093/bioinformatics/bty807
+
+```
+@article{Lee2018,
+  doi = {10.1093/bioinformatics/bty807},
+  url = {https://doi.org/10.1093/bioinformatics/bty807},
+  year  = {2018},
+  month = {sep},
+  publisher = {Oxford University Press ({OUP})},
+  author = {Benjamin D Lee},
+  editor = {John Hancock},
+  title = {Squiggle: a user-friendly two-dimensional {DNA} sequence visualization tool},
+  journal = {Bioinformatics}
+}
+```
