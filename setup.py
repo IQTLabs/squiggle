@@ -22,7 +22,7 @@ VERSION = "0.3.1"
 
 # What packages are required for this module to be executed?
 REQUIRED = [
-    "click", "tqdm", "bokeh>=0.13.0", "numpy", "python-box", "pyfaidx>=0.5.4.2"
+    "click==6.7", "tqdm", "bokeh>=0.13.0", "numpy", "python-box", "pyfaidx>=0.5.4.2"
 ]
 
 # What packages are optional?
