@@ -65,7 +65,7 @@ Citation
 
 Using Squiggle in your research? Please cite it!
 
-- Lee, B. D. (2018). Squiggle: a user-friendly two-dimensional DNA sequence visualization tool. Bioinformatics. `https://doi.org/10.1093/bioinformatics/bty807 <https://doi.org/10.1093/bioinformatics/bty807>`_
+- Lee, B. D. (2018). Squiggle: a user-friendly two-dimensional DNA sequence visualization tool. *Bioinformatics*. `doi:10.1093/bioinformatics/bty807 <https://doi.org/10.1093/bioinformatics/bty807>`_
 
 .. code-block:: bibtex
 

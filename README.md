@@ -61,7 +61,7 @@ take look at the documentation [here](https://squiggle.readthedocs.io).
 
 Using Squiggle in your research? Please cite it!
 
-- Lee, B. D. (2018). Squiggle: a user-friendly two-dimensional DNA sequence visualization tool. Bioinformatics. https://doi.org/10.1093/bioinformatics/bty807
+- Lee, B. D. (2018). Squiggle: a user-friendly two-dimensional DNA sequence visualization tool. *Bioinformatics*. doi:[10.1093/bioinformatics/bty807](doi.org/10.1093/bioinformatics/bty807)
 
 ```
 @article{Lee2018,
