@@ -88,8 +88,8 @@ html_theme = 'alabaster'
 #
 html_theme_options = dict(fixed_sidebar=True,
                           show_related=True,
-                          logo_name=False,
-                          logo="logo.png",
+                          logo_name=True,
+                          logo="just_s.svg",
                           description="DNA Sequence visualization for humans.")
 
 # Add any paths that contain custom static files (such as style sheets) here,
