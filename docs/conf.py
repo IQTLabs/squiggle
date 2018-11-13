@@ -14,7 +14,7 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../squiggle'))
+sys.path.insert(0, os.path.abspath('../'))
 
 
 # -- Project information -----------------------------------------------------
@@ -86,13 +86,11 @@ html_theme = 'alabaster'
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-html_theme_options = {
-    # "fixed_sidebar": True,
-    "logo_name": False,
-    "sidebar_collapse": False,
-    "show_related": True,
-    "description": "DNA Sequence visualization for humans."
-}
+html_theme_options = dict(fixed_sidebar=True,
+                          show_related=True,
+                          logo_name=True,
+                          logo="just_s.png",
+                          description="DNA Sequence visualization for humans.")
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -108,7 +106,6 @@ html_static_path = ['_static']
 # 'searchbox.html']``.
 #
 # html_sidebars = {}
-html_logo = "_static/just_s.png"
 
 
 # -- Options for HTMLHelp output ---------------------------------------------
