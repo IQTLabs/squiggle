@@ -6,7 +6,7 @@
 Squiggle
 ========
 
-|DOI| |Build Status| |CodeFactor| |Docs| |PyPI|
+|DOI| |Build Status| |Docs| |PyPI|
 
 
 `Squiggle <https://github.com/Lab41/squiggle>`_ is a two-dimensional DNA
