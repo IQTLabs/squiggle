@@ -1,4 +1,6 @@
-![Logo](https://github.com/Lab41/squiggle/raw/master/images/logo.png)
+<p align ="center">
+<img src='https://github.com/Lab41/squiggle/raw/master/images/logo.png' height="150">
+</p>
 
 [![DOI](https://img.shields.io/badge/DOI-10.1093%2Fbioinformatics%2Fbty807-brightgreen.svg)](https://doi.org/10.1093/bioinformatics/bty807)
 [![Build Status](https://travis-ci.org/Lab41/squiggle.svg?branch=master)](https://travis-ci.org/Lab41/squiggle)
