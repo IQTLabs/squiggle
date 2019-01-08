@@ -7,9 +7,9 @@ python:
   - "pypy3.5"
 install:
     - pip install -e .
-    - pip install codecov pytest-cov hypothesis
+    - pip install hypothesis pytest
 script:
-    - pytest --cov=squiggle
+    - pytest
 cache: pip
 after_success:
     - codecov

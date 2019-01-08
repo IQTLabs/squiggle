@@ -108,14 +108,8 @@ Indices and tables
 .. |Build Status| image:: https://travis-ci.org/Lab41/squiggle.svg?branch=master
    :target: https://travis-ci.org/Lab41/squiggle
 
-.. |Cov| image:: https://codecov.io/gh/Lab41/squiggle/branch/master/graph/badge.svg
-   :target: https://codecov.io/gh/Lab41/squiggle
-
 .. |Docs| image:: http://readthedocs.org/projects/squiggle/badge/?version=latest
    :target: http://squiggle.readthedocs.io/en/latest/?badge=latest
-
-.. |CodeFactor| image:: https://www.codefactor.io/repository/github/Lab41/squiggle/badge
-   :target: https://www.codefactor.io/repository/github/Lab41/squiggle/
 
 .. |PyPI| image:: https://img.shields.io/pypi/v/squiggle.svg
    :target: https://pypi.org/project/squiggle/
