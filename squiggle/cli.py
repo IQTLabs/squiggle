@@ -46,7 +46,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
     if not dimensions:
         dimensions = (750, 500)
 
-    if len([record for _f in fasta for record in Fasta(_f)]) > len(palette) and mode != "file":
+    if len([record for _f in fasta for record in Fasta(_f, read_long_names=True)]) > len(palette) and mode != "file":
         if len(fasta) > 1 and mode == "auto":
             if not skip:
                 print("Visualizing each file in separate color. To override, provide mode selection.")
@@ -62,7 +62,7 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
     color_counter = 0
     warned = False
     for i, _f in enumerate(fasta):
-        for j, seq in enumerate(Fasta(_f, sequence_always_upper=True)):
+        for j, seq in enumerate(Fasta(_f, sequence_always_upper=True, read_long_names=True)):
             seqs.append(Box(color=palette[color_counter + 1 if color_counter > 2 else 3][color_counter] if color else "black",
                             name=_f if mode == "file" else seq.name,
                             raw_seq=str(seq)))
