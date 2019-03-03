@@ -223,9 +223,10 @@ def visualize(fasta, width, palette, color, hide, bar, title, separate, cols, li
                   color=seq.color)
 
         # set up the legend
-        _fig.legend.location = legend_loc
-        if hide:
-            _fig.legend.click_policy = "hide"
+        if legend is not None:
+            _fig.legend.location = legend_loc
+            if hide:
+                _fig.legend.click_policy = "hide"
 
     # clean up the tqdm bar
     try:
