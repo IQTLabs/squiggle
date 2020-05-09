@@ -314,7 +314,8 @@ def visualize(
     for i, seq in enumerate(_seqs):
         # perform the actual transformation
         transformed = transform(seq.raw_seq, method=method)
-        transformed = (transformed[0][::downsample], transformed[1][::downsample])
+        if downsample > 1:
+            transformed = (transformed[0][::downsample], transformed[1][::downsample])
 
         # figure (no pun intended) which figure to plot the data on
         if separate:
