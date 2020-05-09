@@ -1,10 +1,12 @@
 language: python
 python:
-  - "3.4"
   - "3.5"
   - "3.6"
+  - "3.7"
+  - "3.8"
   # PyPy versions
   - "pypy3.5"
+  - "pypy3" # python 3.6, PyPy 7.1.1-beta0
 install:
   - pip install -e .
   - pip install -U hypothesis

@@ -1,6 +1,0 @@
-bokeh
-pyfaidx
-tqdm
-click
-numpy
-python-box
