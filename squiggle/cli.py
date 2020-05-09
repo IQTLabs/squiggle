@@ -367,15 +367,21 @@ def visualize(
                 legend = click.format_filename(seq.name, shorten=True)
 
         # do the actual plotting
-        _fig.line(
-            x=transformed[0], y=y, line_width=width, legend=legend, color=seq.color
-        )
 
         # set up the legend
         if legend is not None:
+            _fig.line(
+                x=transformed[0],
+                y=y,
+                line_width=width,
+                legend_label=legend,
+                color=seq.color,
+            )
             _fig.legend.location = legend_loc
             if hide:
                 _fig.legend.click_policy = "hide"
+        else:
+            _fig.line(x=transformed[0], y=y, line_width=width, color=seq.color)
 
     # clean up the tqdm bar
     try:
