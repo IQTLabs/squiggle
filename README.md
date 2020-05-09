@@ -7,8 +7,7 @@
 [![Docs](http://readthedocs.org/projects/squiggle/badge/?version=latest)](http://squiggle.readthedocs.io/en/latest/?badge=latest)
 [![PyPI](https://img.shields.io/pypi/v/squiggle.svg)](https://pypi.org/project/squiggle/)
 
-Squiggle is a two-dimensional DNA sequence visualization library that can turn
-FASTA sequence files like this:
+Squiggle is a two-dimensional DNA sequence visualization library that can turn FASTA sequence files like this:
 
     >lcl|NC_000011.10_cds_NP_000509.1_1 [gene=HBB]
     ATGGTGCATCTGACTCCTGAGGAGAAGTCTGCCGTTACTGCCCTGTGGGGCAAGGTGAACGTGGATGAAG
@@ -38,9 +37,8 @@ into gorgeous, interactive visualizations like this:
 
 ## Installation
 
-If you don't have Python 3.4 or greater installed, be sure to [get it
-](https://www.python.org/downloads/). To get the current stable version of
-Squiggle, run:
+If you don't have Python 3.5 or greater installed, be sure to [get it](https://www.python.org/downloads/).
+To get the current stable version of Squiggle, run:
 
     $ pip install squiggle
 
@@ -54,15 +52,14 @@ Using Squiggle is as easy as:
 
     $ squiggle your_sequence.fasta
 
-Squiggle has tons of options available to make beautiful, interactive
-visualizations of DNA sequences. To get a full rundown of the various option,
-take look at the documentation [here](https://squiggle.readthedocs.io).
+Squiggle has tons of options available to make beautiful, interactive visualizations of DNA sequences.
+To get a full rundown of the various option, take look at the documentation [here](https://squiggle.readthedocs.io).
 
 ## Citation
 
 Using Squiggle in your research? Please cite it!
 
-- Lee, B. D. (2018). Squiggle: a user-friendly two-dimensional DNA sequence visualization tool. *Bioinformatics*. doi:[10.1093/bioinformatics/bty807](doi.org/10.1093/bioinformatics/bty807)
+- Lee, B. D. (2018). Squiggle: a user-friendly two-dimensional DNA sequence visualization tool. _Bioinformatics_. doi:[10.1093/bioinformatics/bty807](doi.org/10.1093/bioinformatics/bty807)
 
 ```
 @article{Lee2018,
