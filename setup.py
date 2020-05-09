@@ -21,7 +21,7 @@ REQUIRES_PYTHON = ">=3.5.0"
 VERSION = "0.3.1"
 
 # What packages are required for this module to be executed?
-REQUIRED = ["click", "tqdm", "bokeh", "numpy", "python-box", "pyfaidx>=0.5.4.2"]
+REQUIRED = ["click", "tqdm", "bokeh", "python-box", "pyfaidx>=0.5.4.2"]
 
 # What packages are optional?
 EXTRAS = {

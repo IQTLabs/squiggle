@@ -1,0 +1,44 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test:
+    name: Test ${{ matrix.os }} with Python ${{ matrix.python-version}}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        python-version: ["3.5", "3.6", "3.7", "3.8"]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install .
+          python -m pip install pytest hypothesis
+      - name: Test with pytest
+        run: |
+          pytest
+
+  lint-and-style:
+    name: Lint and style check the source code with pre-commit hooks
+    runs-on: "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.7"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install black flake8
+      - name: Run Black
+        run: black
+      - name: Run flake8
+        run: flake8 squiggle/

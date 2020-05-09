@@ -1,6 +1,5 @@
-from itertools import islice
+from itertools import islice, count
 
-import numpy as np
 from tqdm import tqdm
 
 
@@ -53,7 +52,8 @@ def transform(sequence, method="squiggle", bar=False):
 
     if method == "squiggle":
         running_value = 0
-        x, y = np.linspace(0, len(sequence), 2 * len(sequence) + 1), [0]
+        _x = count(0, step=0.5)
+        x, y = [next(_x) for _ in range(2 * len(sequence) + 1)], [0]
         for character in sequence:
             if character == "A":
                 y.extend([running_value + 0.5, running_value])
@@ -67,7 +67,7 @@ def transform(sequence, method="squiggle", bar=False):
                 running_value += 1
             else:
                 y.extend([running_value] * 2)
-        return list(x), y
+        return x, y
 
     elif method == "gates":
         x, y = [0], [0]
@@ -114,19 +114,16 @@ def transform(sequence, method="squiggle", bar=False):
                 )
 
     elif method == "yau-bp":
-        x, y = [0], [0]
+        _x = count(0)
+        x, y = [next(_x) for _ in range(len(sequence) + 1)], [0]
         for character in sequence:
             if character == "A":
-                x.append(x[-1] + 1)
                 y.append(y[-1] - 1)
             elif character == "T":
-                x.append(x[-1] + 1)
                 y.append(y[-1] + 1)
             elif character == "G":
-                x.append(x[-1] + 1)
                 y.append(y[-1] - 0.5)
             elif character == "C":
-                x.append(x[-1] + 1)
                 y.append(y[-1] + 0.5)
             else:
                 raise ValueError(
