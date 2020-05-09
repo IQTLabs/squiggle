@@ -33,7 +33,7 @@ from . import transform
 @click.option(
     "--hide/--no-hide",
     default=False,
-    help="Whether to hide sequences when clicked in the legend. Defaults to false if plotting one sequence and true if plotting multiple.",
+    help="Whether to hide sequences when clicked in the legend. Defaults to false.",
 )
 @click.option(
     "--bar/--no-bar",
