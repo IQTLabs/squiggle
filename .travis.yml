@@ -6,10 +6,11 @@ python:
   # PyPy versions
   - "pypy3.5"
 install:
-    - pip install -e .
-    - pip install hypothesis pytest
+  - pip install -e .
+  - pip install -U hypothesis
+  - pip install -U pytest
 script:
-    - pytest
+  - pytest
 cache: pip
 after_success:
-    - codecov
+  - codecov
