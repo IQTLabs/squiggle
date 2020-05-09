@@ -1,6 +1,8 @@
-import numpy as np
 from itertools import islice
+
+import numpy as np
 from tqdm import tqdm
+
 
 def _k_mers(sequence, k):
     it = iter(sequence)
@@ -11,8 +13,9 @@ def _k_mers(sequence, k):
         result = result[1:] + (elem,)
         yield "".join(result)
 
+
 def transform(sequence, method="squiggle", bar=False):
-    '''Transforms a DNA sequence into a series of coordinates for 2D visualization.
+    """Transforms a DNA sequence into a series of coordinates for 2D visualization.
 
     Args:
         sequence (str): The DNA sequence to transform.
@@ -41,7 +44,7 @@ def transform(sequence, method="squiggle", bar=False):
 
     Raises:
         ValueError: When an invalid character is in the sequence.
-    '''
+    """
 
     sequence = sequence.upper()
 
@@ -70,37 +73,45 @@ def transform(sequence, method="squiggle", bar=False):
         x, y = [0], [0]
         for character in sequence:
             if character == "A":
-                x.append(x[-1]) # no change in x coord
+                x.append(x[-1])  # no change in x coord
                 y.append(y[-1] - 1)
             elif character == "T":
-                x.append(x[-1]) # no change in x coord
+                x.append(x[-1])  # no change in x coord
                 y.append(y[-1] + 1)
             elif character == "G":
                 x.append(x[-1] + 1)
-                y.append(y[-1]) # no change in y coord
+                y.append(y[-1])  # no change in y coord
             elif character == "C":
                 x.append(x[-1] - 1)
-                y.append(y[-1]) # no change in y coord
+                y.append(y[-1])  # no change in y coord
             else:
-                raise ValueError("Invalid character in sequence: " + character + ". Gates's method does not support non-ATGC bases. Try using method=squiggle.")
+                raise ValueError(
+                    "Invalid character in sequence: "
+                    + character
+                    + ". Gates's method does not support non-ATGC bases. Try using method=squiggle."
+                )
 
     elif method == "yau":
         x, y = [0], [0]
         for character in sequence:
             if character == "A":
                 x.append(x[-1] + 0.5)
-                y.append(y[-1] - ((3**0.5) / 2))
+                y.append(y[-1] - ((3 ** 0.5) / 2))
             elif character == "T":
                 x.append(x[-1] + 0.5)
-                y.append(y[-1] + ((3**0.5) / 2))
+                y.append(y[-1] + ((3 ** 0.5) / 2))
             elif character == "G":
-                x.append(x[-1] + ((3**0.5) / 2))
+                x.append(x[-1] + ((3 ** 0.5) / 2))
                 y.append(y[-1] - 0.5)
             elif character == "C":
-                x.append(x[-1] + ((3**0.5) / 2))
+                x.append(x[-1] + ((3 ** 0.5) / 2))
                 y.append(y[-1] + 0.5)
             else:
-                raise ValueError("Invalid character in sequence: " + character + ". Yau's method does not support non-ATGC bases. Try using method=squiggle.")
+                raise ValueError(
+                    "Invalid character in sequence: "
+                    + character
+                    + ". Yau's method does not support non-ATGC bases. Try using method=squiggle."
+                )
 
     elif method == "yau-bp":
         x, y = [0], [0]
@@ -118,7 +129,11 @@ def transform(sequence, method="squiggle", bar=False):
                 x.append(x[-1] + 1)
                 y.append(y[-1] + 0.5)
             else:
-                raise ValueError("Invalid character in sequence: " + character + ". Yau's method does not support non-ATGC bases. Try using method=squiggle.")
+                raise ValueError(
+                    "Invalid character in sequence: "
+                    + character
+                    + ". Yau's method does not support non-ATGC bases. Try using method=squiggle."
+                )
 
     elif method == "randic":
         x, y = [], []
@@ -128,25 +143,31 @@ def transform(sequence, method="squiggle", bar=False):
             try:
                 y.append(mapping[character])
             except KeyError:
-                raise ValueError("Invalid character in sequence: " + character + ". Randić's method does not support non-ATGC bases. Try using method=squiggle.")
+                raise ValueError(
+                    "Invalid character in sequence: "
+                    + character
+                    + ". Randić's method does not support non-ATGC bases. Try using method=squiggle."
+                )
 
     elif method == "qi":
-        mapping = {'AA': 12,
-                   'AC': 4,
-                   'GT': 6,
-                   'AG': 0,
-                   'CC': 13,
-                   'CA': 5,
-                   'CG': 10,
-                   'TT': 15,
-                   'GG': 14,
-                   'GC': 11,
-                   'AT': 8,
-                   'GA': 1,
-                   'TG': 7,
-                   'TA': 9,
-                   'TC': 3,
-                   'CT': 2}
+        mapping = {
+            "AA": 12,
+            "AC": 4,
+            "GT": 6,
+            "AG": 0,
+            "CC": 13,
+            "CA": 5,
+            "CG": 10,
+            "TT": 15,
+            "GG": 14,
+            "GC": 11,
+            "AT": 8,
+            "GA": 1,
+            "TG": 7,
+            "TA": 9,
+            "TC": 3,
+            "CT": 2,
+        }
         x, y = [], []
 
         for i, k_mer in enumerate(_k_mers(sequence, 2)):
@@ -154,10 +175,16 @@ def transform(sequence, method="squiggle", bar=False):
             try:
                 y.append(mapping[k_mer])
             except KeyError:
-                raise ValueError("Invalid k-mer in sequence: " + k_mer + ". Qi's method does not support non-ATGC bases. Try using method=squiggle.")
+                raise ValueError(
+                    "Invalid k-mer in sequence: "
+                    + k_mer
+                    + ". Qi's method does not support non-ATGC bases. Try using method=squiggle."
+                )
 
     else:
-        raise ValueError("Invalid method. Valid methods are 'squiggle', 'gates', 'yau', and 'randic'.")
+        raise ValueError(
+            "Invalid method. Valid methods are 'squiggle', 'gates', 'yau', and 'randic'."
+        )
 
     if bar:
         sequence.close()
