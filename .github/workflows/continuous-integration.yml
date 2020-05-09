@@ -41,4 +41,4 @@ jobs:
       - name: Run Black
         run: black
       - name: Run flake8
-        run: flake8
+        run: flake8 squiggle/
