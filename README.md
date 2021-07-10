@@ -1,3 +1,5 @@
+# This repository has moved to https://github.com/Benjamin-Lee/squiggle
+
 <p align ="center">
 <img src='https://github.com/Lab41/squiggle/raw/master/images/logo.png' height="150">
 </p>
